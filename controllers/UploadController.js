@@ -50,7 +50,7 @@ function uploadToS3(image, res)
     });   
 }
 
-router.post('/', function (req, res, next) {
+router.post('/', VerifyToken, function (req, res, next) {
     let busboy = new Busboy({ headers: req.headers });
 
     console.log(process.env.ACCESS_KEY_ID)
