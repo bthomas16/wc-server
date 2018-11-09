@@ -7,9 +7,15 @@ function verifyToken(req, res, next)
   if (!token)
     return res.status(403).send({ auth: false, message: 'No token provided.' });
   jwt.verify(token, config.secret, function(err, decoded) {
-    if (err) res.status(401).json({ success: false, message: 'Your session has expired - Please Logout and Login again.'});
-    req.id = decoded.id;
-    next();
+    if(err) {
+      res.status(500).json({isSuccess: false, message:'Logout to Login'})
+      next(false);
+      // return false;
+    }
+    if(!err) {
+      req.id = decoded.id;
+      next();
+    }
   });
 }
 module.exports = verifyToken;

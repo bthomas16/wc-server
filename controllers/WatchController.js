@@ -10,8 +10,8 @@ const VerifyToken = require('../middleware/VerifyToken.js');
 router.post('/', VerifyToken, async (req, res) => {
     let formData = req.body;
     console.log('soup', req.body)
-    if(WatchModel.validateWatchFormData(formData, res));
-    WatchModel.saveWatchToCollectionDB(formData, req.id, res); 
+    if (WatchModel.validateWatchFormData(formData, res));
+        WatchModel.saveWatchToCollectionDB(formData, req.id, res); 
 });
 
 // ?id="id"

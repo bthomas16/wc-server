@@ -21,6 +21,8 @@ const getWatchCollectionByCondition = (id, conditionToFilterBy) => {
                 .where('user_id', id)
                 .andWhere('condition', '<', 5);
             break;
+        default:
+                return;
     }
     
 }

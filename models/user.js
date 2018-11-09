@@ -61,7 +61,7 @@ const User = module.exports = function () {
         }).then((id) => {
             console.log('user was saved here is the ID', id[0])
             let token = jwt.sign({ id: id[0] }, config.secret, {
-                expiresIn: 86400 // expires in 24 hours
+                expiresIn: 8600 // expires in 24 hours
               })
               let user = formData;
               user.password = null;

@@ -37,12 +37,12 @@ router.get('/validate-jwt/', (req, res) =>
   let token = req.query.jwt;
   jwt.verify(token, config.secret, function(err, decoded) { 
   if (err) {
-    console.log('invalid JWTFJG', err)
+    console.log('invalid JWTFJG', err, token)
     res.json({ isSuccess: false, message: 'Your session has expired - Please Logout and Login again.'});
     return;
   }
   else {
-    console.log('VALID JWT')
+    console.log('VALID JWT', token)
     res.status(200).json({isSuccess: true, message: 'User is authorized'})
     return;
   }

@@ -63,7 +63,7 @@ const Watch = (function() {
     async function updateWatchById(id, formData, res) {
         try 
         {
-            console.log('hopefully saving watch to db', formData);
+            console.log('hopefully updating watch to db', formData);
             knex('watch').where('id', id).returning('*').update(
                 {
                     // src: formData.src,

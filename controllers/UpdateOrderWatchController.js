@@ -13,27 +13,18 @@ function updateWatchOrder(id, index) {
     })
 }
 
-// router.put('/', VerifyToken, async (req, res) => {
-//     let collection = req.body;
-//     collection.forEach(async (watch, index) => {
-//         await updateWatchOrder(watch, index);
-//     })
-// });
-
 router.put('/', VerifyToken, async (req, res) => {
     try
     {   
-        console.log('ua, gotmme', req.body)
         let newCollection = req.body;
         newCollection.forEach(async (watch, index) => {
-            console.log('boot', watch, index)
             await updateWatchOrder(watch.id, index);
         });
-        res.status(201).json({collection: newCollection})
+        res.status(201).json({collection: newCollection});
     }
     catch
     {   
-        res.status(403).json({isSuccess: false, message: 'Could not get collection at this time'})
+        res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'});
     } 
 })
 
