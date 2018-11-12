@@ -1,20 +1,16 @@
-
+const bcrypt = require('bcryptjs');
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('peeps').del()
     .then(function () {
-      const users = 
-      [
-        {
-          firstName: 'Larry',
-          lastName: 'Moe',
-          userName: 'Curly',
-          password: 'ohyeah',
-          email: 'lmc@g.com',
-          phone: '123456789',
-          address: '124 wallaby way,Sidney'
-        }
-      ];
-      return knex('peeps').insert(users);
-    });
+
+    let user = {
+        firstName: 'Larry',
+        lastName: 'Moe',
+        email: 'we@g.com',
+        password: '$2a$10$MP2wN492mmOKn7AJWaarueDipBgWMjluiQeqC3NN6ymZ1Wr.oAhUu'
+      }
+    
+    return knex('peeps').insert(user);
+  });
 };

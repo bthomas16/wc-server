@@ -22,7 +22,6 @@ const s3bucket = new AWS.S3({
 
 function uploadToS3(image, res) 
 {
-    console.log('we out here', s3bucket)
     s3bucket.createBucket(function () {
         let uploadedImagesData = [];
 
@@ -55,7 +54,6 @@ router.post('/', VerifyToken, function (req, res, next) {
 
     console.log(process.env.ACCESS_KEY_ID)
     
-
     busboy.on('finish', function() {
         console.log('dick it down', req.files)
         let files = req.files;

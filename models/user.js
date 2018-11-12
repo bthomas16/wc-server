@@ -61,7 +61,7 @@ const User = module.exports = function () {
         }).then((id) => {
             console.log('user was saved here is the ID', id[0])
             let token = jwt.sign({ id: id[0] }, config.secret, {
-                expiresIn: 8600 // expires in 24 hours
+                expiresIn: 86400 // expires in 24 hours
               })
               let user = formData;
               user.password = null;
@@ -76,56 +76,31 @@ const User = module.exports = function () {
 
     // LOGIN LOGIN LOGIN LOGIN
 
-    function ValidLoginFormData(formData, res) 
+    function ValidLoginFormData(formData) 
     {  
-        if(!formData) res.json({isSuccess: false, message: 'Please send a valid form'});
-        else if (!formData.email) res.json({isSuccess: false, message: 'Please provide an email'});
-        else if (!formData.password) res.json({isSuccess: false, message: 'Please provide a password'});
-        else {
-            return true;
-        }
+        if(!formData || !formData.email || !formData.password) return false;
+        return true;
     }
 
-    const CompareHashedAndLogin = function(formData, res) 
+    const RetrieveUser = async function(formData) 
     {
         let tempEmail = formData.email.toLowerCase();
-        console.log(formData, 'fdata')
-        knex('peeps')
+        return await knex('peeps')
             .select()
             .where('email', tempEmail)
             .first()
-            .then((user) => {
-                bcrypt.compare(formData.password, user.password, function(err, match) {
-                    if(match) {
-                        console.log(',atchie', match)
-                        LoginUser(user, res);
-                    }
-                    else res.json({isSuccess: false, message: 'Password is incorrect'});   
-                })   
-        }).catch(err => {
-            res.json({isSuccess: false, message: 'User does not exist'});  
+            .then(async (user) => {
+                return await user;
+            }).catch(err => {
+                console.log('no bueno', err)
+                return 'err';  
         })
     }
 
-    function LoginUser(user, res)
-    {
-        let token = SetJwtToken(user);
-        knex('peeps').where(
-            'email', user.email
-            ).first().then(function(userByEmail){
-                let user = {
-                    firstName: userByEmail.firstName,
-                    lastName: userByEmail.lastName,
-                    email: userByEmail.email
-                }
-            res.json({isSuccess: true, message: "Successfully logged in", token, user})
-        })
-   } 
-
-    function SetJwtToken(user) 
+    async function SetJwtToken(user) 
     {
         if(!user) return false;
-        let token = jwt.sign({ id: user.id }, config.secret, {
+        let token = await jwt.sign({ id: user.id }, config.secret, {
             expiresIn: 86400 // expires in 24 hours
           })
           return token     
@@ -153,11 +128,11 @@ const User = module.exports = function () {
         ValidRegisterFormData,
         CheckDuplicatesHashAndSaveUser,
         SaveUserToDB,
-
+        
         // LOGIN
         ValidLoginFormData,
-        CompareHashedAndLogin,
-
+        RetrieveUser,
+        SetJwtToken,
         FindUser
     }
 }

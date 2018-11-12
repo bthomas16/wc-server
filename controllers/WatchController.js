@@ -22,21 +22,19 @@ router.put('/', VerifyToken, (req, res) => {
 });
 
 router.get('/', VerifyToken, async (req, res) => {
+    console.log('getting collection sir')
     try
     {   
         await knex('watch')
             .orderBy('order', 'asc')
             .where('user_id', req.id)
             .then(collection => { 
-            if(collection.length > 0) 
                 res.status(200).json({collection});
-            else 
-                res.status(404).json({Collection: false, message: 'No collection'})
-        }) 
+            })
     }
     catch
     {   
-        res.status(403).json({isSuccess: false, message: 'Could not get collection at this time'})
+        res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'})
     } 
 })
 
@@ -56,7 +54,7 @@ router.get('/number-fsot', VerifyToken, async (req, res) => {
     }
     catch
     {   
-        res.status(403).json({isSuccess: false, message: 'Could not get collection at this time'})
+        res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'})
     } 
 })
 

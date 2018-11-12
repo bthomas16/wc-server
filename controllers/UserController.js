@@ -25,10 +25,49 @@ router.post('/register', async (req, res) =>
     
 router.post('/login', async (req, res) => 
 {
-  let valid = User.ValidLoginFormData(req.body, res);
+  try {
 
-  if(valid) {
-    User.CompareHashedAndLogin(req.body, res);   
+      let formData = req.body;
+      let validForm = User.ValidLoginFormData(formData);
+      if (!validForm) {
+        res.json({isSuccess: false, message: 'Please provide a valid form'})
+        return;
+      }
+
+      let user = await User.RetrieveUser(formData);
+      if (!user) {
+        res.json({isSuccess: false, message: 'Incorrect email or password'});
+        return;
+      }
+
+      let token = await User.SetJwtToken(user);
+      bcrypt.compare(formData.password, user.password, async function(err, match) {
+        
+        // LOGIN FAIL
+        if (err) {
+          res.json({isSuccess: false, message: 'Incorrect email or password'})
+          return;
+        }
+
+        // LOGIN SUCCESS
+        if(match) {
+          res.status(200).json({
+            isSuccess: true,
+            message: 'Successfully logged in',
+            token, 
+            user
+          })
+        }
+        else {
+          res.json({isSuccess: false, message: 'Incorrect email or password'})
+          return;
+        }
+    })
+  }
+  catch (err) {
+    console.log('matchwer!', err)
+    
+    res.status(401).json({isSuccess: false, message: 'Incorrect email or password', err});
   }
 });
 
@@ -52,16 +91,8 @@ router.get('/validate-jwt/', (req, res) =>
 
 router.get('/profile', VerifyToken, (req, res) => 
 {
-  if(req.id)
-  {
     User.FindUser(req.id, res);
     return;
-  }
-  else
-  { 
-    res.status(404).json({isSuccess: false, message: 'User is not valid'})  
-    return;
-  }
 });
 
 

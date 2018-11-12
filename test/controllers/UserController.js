@@ -5,6 +5,7 @@ const expect = require('chai').expect;
 const assert = require('chai').assert;
 const knex = require('../../config/db');
 
+const bcrypt = require('bcryptjs');
 chai.use(require('chai-http'));
 
 const app = require('../../app.js');
@@ -21,7 +22,7 @@ describe('User Authentication - API', function() {
     // LOGIN TESTS
     describe('User Login', function() {
 
-        it("Should Fail Login - prompt for email", function() {
+        it("Should Fail Login - blank form data", function() {
             return chai.request(app)
                 .post('/api/user/login')
                 .send({
@@ -29,15 +30,14 @@ describe('User Authentication - API', function() {
                     password: ''
                 })
                 .then(function(res) {
-                    expect(res).to.have.status(200);
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');
-                    assert.equal(res.body.message, 'Please provide an email', 'Empty form fields should prompt for email');
+                    assert.equal(res.body.message, 'Please provide a valid form', 'No empty form fields');
                 });
         });
 
-        it("Should Fail Login - prompt for password", function() {
+        it("Should Fail Login - blank form data (password)", function() {
             return chai.request(app)
                 .post('/api/user/login')
                 .send({
@@ -45,15 +45,14 @@ describe('User Authentication - API', function() {
                     password: ''
                 })
                 .then(function(res) {
-                    expect(res).to.have.status(200);
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');                
-                    assert.equal(res.body.message, 'Please provide a password', 'Empty form fields should prompt for password')
+                    assert.equal(res.body.message, 'Please provide a valid form', 'No empty form fields')
                 });
         });
 
-        it("Should Fail Login - user does not exist", function() {
+        it("Should Fail Login - incorrect user data", function() {
             return chai.request(app)
                 .post('/api/user/login')
                 .send({
@@ -61,11 +60,10 @@ describe('User Authentication - API', function() {
                     password: 'boo'
                 })
                 .then(function(res) {
-                    expect(res).to.have.status(200);
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');                
-                    assert.equal(res.body.message, 'User does not exist', 'Incorrect email, user does not exists')
+                    assert.equal(res.body.message, 'Incorrect email or password', 'Incorrect email, user does not exists')
                 });
         });
 
@@ -77,11 +75,10 @@ describe('User Authentication - API', function() {
                     password: 'boob'
                 })
                 .then(function(res) {
-                    expect(res).to.have.status(200);
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');
-                    assert.equal(res.body.message, 'Password is incorrect', 'Incorrect password')
+                    assert.equal(res.body.message, 'Incorrect email or password', 'Incorrect password')
                 });
         });
 
@@ -90,17 +87,19 @@ describe('User Authentication - API', function() {
                 .post('/api/user/login')
                 .send({
                     email: 'we@g.com',
-                    password: 'boo'
+                    password: 'boobs'
                 })
                 .then(function(res) {
                     expect(res).to.have.status(200);
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, true, 'success should be true');                
-                    assert.equal(res.body.user.firstName, 'boo', 'first name of User should be boo')
+                    assert.equal(res.body.user.firstName, 'Larry', 'first name of User should be Larry')
                 });
             });
         });
+
+        
 
 
 
