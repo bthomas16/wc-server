@@ -20,7 +20,7 @@ const s3bucket = new AWS.S3({
     region: process.env.REGION
 });
 
-function uploadToS3(image, res) 
+function uploadWatchImagesToS3(image, res) 
 {
     s3bucket.createBucket(function () {
         let uploadedImagesData = [];
@@ -49,18 +49,51 @@ function uploadToS3(image, res)
     });   
 }
 
-router.post('/', VerifyToken, function (req, res, next) {
+router.post('/watch-images', VerifyToken, function (req, res, next) {
     let busboy = new Busboy({ headers: req.headers });
 
-    console.log(process.env.ACCESS_KEY_ID)
-    
     busboy.on('finish', function() {
-        console.log('dick it down', req.files)
         let files = req.files;
         let imagesArr = Object.values(files); //turn object of objects into array of objects
-        uploadToS3(imagesArr[0], res);
+        uploadWatchImagesToS3(imagesArr[0], res);
    });
     req.pipe(busboy);
 });
+
+// PROFILE IMAGE // PROFILE IMAGE
+
+router.put('/profile-image', VerifyToken, function (req, res, next) {
+    let busboy = new Busboy({ headers: req.headers });
+    
+    busboy.on('finish', function() {
+        let files = req.files;
+        let imagesArr = Object.values(files); //turn object of objects into array of objects
+        uploadProfileImageToS3(imagesArr[0], res);
+   });
+    req.pipe(busboy);
+});
+
+function uploadProfileImageToS3(image, res) 
+{
+    s3bucket.createBucket(function () {
+
+        let params = {
+            Bucket: 'watchcollectionbucket',
+            Key:  Date.now().toString() + image.name,
+            Body: image.data,
+            ContentType: 'image/jpeg',
+            ACL: 'public-read'
+        };
+
+        s3bucket.upload(params, function (err, data) {
+            if (err) {
+                console.log('error in callback', err);
+                res.status(500).json({err})     
+                return;
+            }
+            res.status(201).json({data})
+        }); 
+    });   
+}
 
 module.exports = router;

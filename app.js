@@ -35,7 +35,7 @@ app.use('/api/watch/favorite', FavoriteWatchController);
 app.use('/api/watch/remove', RemoveWatchController);
 app.use('/api/watch/update-order', UpdateOrderWatchController);
 app.use('/api/watch/sort-filter', SortFilterWatchController);
-app.use('/api/watch/upload', Upload);
+app.use('/api/upload', Upload);
 
 app.use('/api/static-assets', express.static('public'));
 

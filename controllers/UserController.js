@@ -74,6 +74,11 @@ router.post('/login', async (req, res) =>
 router.get('/validate-jwt/', (req, res) => 
 {
   let token = req.query.jwt;
+  if (!token) {
+    console.log('no token', token)
+    res.json({isSuccess: false, message: 'Pleasge login to access your profile'});
+    return;
+  }
   jwt.verify(token, config.secret, function(err, decoded) { 
   if (err) {
     console.log('invalid JWTFJG', err, token)
@@ -89,11 +94,23 @@ router.get('/validate-jwt/', (req, res) =>
 })
 
 
-router.get('/profile', VerifyToken, (req, res) => 
-{
+router.get('/profile', VerifyToken, (req, res) => {
     User.FindUser(req.id, res);
     return;
 });
+
+router.put('/upload', VerifyToken, (req, res) => {
+    let image = req.body.image
+    let success = User.UploadImageAws(image);
+    if (success) {
+      res.json({isSuccess: true, message: 'Image uploaded successfully'});
+      return;
+    }
+    else {
+      res.json({isSuccess: false, message: 'Image failed to uploaded'});   
+      return; 
+    }
+})
 
 
 
