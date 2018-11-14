@@ -100,45 +100,74 @@ router.get('/profile', VerifyToken, (req, res) => {
 });
 
 
-router.put('/edit', VerifyToken, async (req, res) => {
+router.put('/edit', VerifyToken, (req, res) => {
   try {
     let formData = req.body;
+    let userId = req.id;   
+    console.log('here')
+    
+    // user is trying to update password
     if (formData.newPassword) {
-      formData.password = formData.newPassword;
-    };
-    let id = req.id;
+      knex('peeps').where('id', userId).first().then(user => {
+        bcrypt.compare(formData.oldPassword, user.password, function(error, match) {
+          if (match) {
+            bcrypt.genSalt(10, (err, salt) => {
+              bcrypt.hash(formData.newPassword, salt, (err, hash) => {
+                if(err) res.json({isSuccess: false, message: err});
+                formData.password = hash;
+                let updatedUser = UpdateUser(formData, userId);
+                if (updatedUser) {
+                  res.json({isSuccess: true, message: 'User successfully updated'})
+                  return;
+                }
+              })
+            })
+          }  
+          // OLD PASSWORD IS NOT A MATCH
+          else {
+            console.log('got here now', error, match)
+            res.json({isSuccess: false, message: 'Old password is not correct'})
+          }
+        })
+      }).catch(err => {
+        console.log('foop', err);
+        res.json({isSuccess: false, message: 'User failed to update', err}); 
+        return;
+      })
+    }
 
-    knex('peeps').where('id', id).then(user => {
-      bcrypt.compare(formData.password, user.password, function(err, match) {
-        if (err) {
-          console.log('opwpfdoier')
-          res.json({isSuccess: false, message: 'Incorrect old password'});
-          return;
-        }
-      else return;
-    })
-  })
+    // user updating anything except password
+    else {
+      let updatedUser = UpdateUser(formData, userId);
+       if (updatedUser) {
+        res.json({isSuccess: true, message: 'User successfully updated'})
+        return;
+       }
+       else {
+        res.json({isSuccess: false, message: 'User failed to updated'})
+        return;
+       }
+    }
+    
+  } 
+  catch (err) {
+    console.log(err)
+  }
+})
 
-    knex('peeps').where('id', id).returning('*').update({
+const UpdateUser = async function(formData, userId){
+    await knex('peeps').where('id', userId).returning('*').update({
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
       password: formData.password,
       imgSrc: formData.imgSrc
     }).then(user => {
-      console.log('updated date', user)
-      res.json({isSuccess: true, message: 'Updated profile'});
-      return;
+      return user;
     }).catch(err => {
-      console.log('ooooops', err)
-      res.json({isSuccess: false, message: 'Failed to update profile'})
-      return;      
+      return err;      
     })
-  } 
-  catch (err) {
-    console.log(err)
-  }
-})
+}
 
 
 
