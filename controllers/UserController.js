@@ -99,17 +99,45 @@ router.get('/profile', VerifyToken, (req, res) => {
     return;
 });
 
-router.put('/upload', VerifyToken, (req, res) => {
-    let image = req.body.image
-    let success = User.UploadImageAws(image);
-    if (success) {
-      res.json({isSuccess: true, message: 'Image uploaded successfully'});
+
+router.put('/edit', VerifyToken, async (req, res) => {
+  try {
+    let formData = req.body;
+    if (formData.newPassword) {
+      formData.password = formData.newPassword;
+    };
+    let id = req.id;
+
+    knex('peeps').where('id', id).then(user => {
+      bcrypt.compare(formData.password, user.password, function(err, match) {
+        if (err) {
+          console.log('opwpfdoier')
+          res.json({isSuccess: false, message: 'Incorrect old password'});
+          return;
+        }
+      else return;
+    })
+  })
+
+    knex('peeps').where('id', id).returning('*').update({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      password: formData.password,
+      imgSrc: formData.imgSrc
+    }).then(user => {
+      console.log('updated date', user)
+      res.json({isSuccess: true, message: 'Updated profile'});
       return;
-    }
-    else {
-      res.json({isSuccess: false, message: 'Image failed to uploaded'});   
-      return; 
-    }
+    }).catch(err => {
+      console.log('ooooops', err)
+      res.json({isSuccess: false, message: 'Failed to update profile'})
+      return;      
+    })
+  } 
+  catch (err) {
+    console.log(err)
+  }
 })
 
 
