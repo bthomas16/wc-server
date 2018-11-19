@@ -13,13 +13,13 @@ const User = module.exports = function () {
         else if (!formData.lastName)  res.json({isSuccess: false, message: 'Please provide a last name'});
         else if (!formData.email)  res.json({isSuccess: false, message: 'Please provide an email'});
         else if (!formData.password)  res.json({isSuccess: false, message: 'Please provide a password'});
-        else return true
+        else return true;
     }
 
     function CheckDuplicatesHashAndSaveUser(formData, res) 
     {
         let tempEmail = formData.email.toLowerCase();
-        knex('peeps')
+        return knex('peeps')
             .select()
             .where('email', tempEmail)
             .first()
@@ -70,9 +70,6 @@ const User = module.exports = function () {
             console.log(err)
         })
     }
-
-
-
 
     // LOGIN LOGIN LOGIN LOGIN
 

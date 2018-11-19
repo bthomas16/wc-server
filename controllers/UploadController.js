@@ -55,6 +55,7 @@ router.post('/watch-images', VerifyToken, function (req, res, next) {
     busboy.on('finish', function() {
         let files = req.files;
         let imagesArr = Object.values(files); //turn object of objects into array of objects
+        console.log('should do shit', files)
         uploadWatchImagesToS3(imagesArr[0], res);
    });
     req.pipe(busboy);

@@ -30,14 +30,12 @@ router.post('/login', async (req, res) =>
       let formData = req.body;
       let validForm = User.ValidLoginFormData(formData);
       if (!validForm) {
-        res.json({isSuccess: false, message: 'Please provide a valid form'})
-        return;
+        return res.json({isSuccess: false, message: 'Please provide a valid form'})
       }
 
       let user = await User.RetrieveUser(formData);
       if (!user) {
-        res.json({isSuccess: false, message: 'Incorrect email or password'});
-        return;
+        return res.json({isSuccess: false, message: 'Incorrect email or password'});
       }
 
       let token = await User.SetJwtToken(user);
@@ -45,8 +43,7 @@ router.post('/login', async (req, res) =>
         
         // LOGIN FAIL
         if (err) {
-          res.json({isSuccess: false, message: 'Incorrect email or password'})
-          return;
+          return res.json({isSuccess: false, message: 'Incorrect email or password'})
         }
 
         // LOGIN SUCCESS
@@ -59,15 +56,14 @@ router.post('/login', async (req, res) =>
           })
         }
         else {
-          res.json({isSuccess: false, message: 'Incorrect email or password'})
-          return;
+          return res.json({isSuccess: false, message: 'Incorrect email or password'})
         }
     })
   }
   catch (err) {
     console.log('matchwer!', err)
     
-    res.status(401).json({isSuccess: false, message: 'Incorrect email or password', err});
+    return res.status(401).json({isSuccess: false, message: 'Incorrect email or password', err});
   }
 });
 
