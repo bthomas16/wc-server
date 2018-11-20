@@ -20,33 +20,38 @@ const s3bucket = new AWS.S3({
     region: process.env.REGION
 });
 
-function uploadWatchImagesToS3(image, res) 
+function uploadWatchImagesToS3(images, res) 
 {
     s3bucket.createBucket(function () {
-        let uploadedImagesData = [];
+        let uploadedImages = [];
 
-        let params = {
-            Bucket: 'watchcollectionbucket',
-            Key:  Date.now().toString() + image.name,
-            Body: image.data,
-            ContentType: 'image/jpeg',
-            ACL: 'public-read'
-        };
-
-        s3bucket.upload(params, function (err, data) {
-            if (err) {
-                console.log('error in callback', err);
-            }
-            uploadedImagesData.push(data);
+        console.log('should upload these bois', images)
+        images.forEach(image => {
             
-            // if (uploadedImagesData.length == imagesArr.length) {
-            //     uploadedImagesData.forEach((image, index) => {
-            //         image.src = image.location;
-            //         image.order = index;
-            //     });
-            res.status(201).json({uploadedImagesData})
-        }); 
-    });   
+            let params = {
+                Bucket: 'watchcollectionbucket',
+                Key:  Date.now().toString() + image.name,
+                Body: image.data,
+                ContentType: 'image/jpeg',
+                ACL: 'public-read'
+            };
+
+            s3bucket.upload(params, async function (err, data) {
+                if (err) {
+                    console.log('error in callback', err);
+                }
+                await uploadedImages.push(data);
+                
+                if (uploadedImages.length == images.length) {
+                    // uploadedImages.forEach((image, index) => {
+                    //     image.src = image.location;
+                    //     image.order = index;
+                    // });
+                res.status(201).json({uploadedImages})
+                }; 
+            });   
+        })
+    });       
 }
 
 router.post('/watch-images', VerifyToken, function (req, res, next) {
@@ -55,8 +60,7 @@ router.post('/watch-images', VerifyToken, function (req, res, next) {
     busboy.on('finish', function() {
         let files = req.files;
         let imagesArr = Object.values(files); //turn object of objects into array of objects
-        console.log('should do shit', files)
-        uploadWatchImagesToS3(imagesArr[0], res);
+        uploadWatchImagesToS3(imagesArr, res);
    });
     req.pipe(busboy);
 });

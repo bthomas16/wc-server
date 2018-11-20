@@ -13,12 +13,12 @@ const Watch = (function() {
     async function saveWatchToCollectionDB(formData, user_id, res) {
         try 
         {
-            console.log('ooooof', formData.src)
+            console.log('ooooof', formData.src.images)
             await knex('watch').returning('*').insert(
                 {
                     user_id: user_id,
 
-                    src: formData.src,
+                    src: { images: formData.src.images },
                     condition: formData.condition,
                     brand: formData.brand,
                     name: formData.name,
@@ -50,8 +50,10 @@ const Watch = (function() {
                         message: 'Watch saved to Collection',
                         watch: watch[0]
                     });
-                }
-            ) 
+                })
+                .catch((e) => {
+                    console.log(e)
+                })  
         }
         catch 
         {
@@ -66,7 +68,7 @@ const Watch = (function() {
             console.log('hopefully updating watch to db', formData);
             knex('watch').where('id', id).returning('*').update(
                 {
-                    // src: formData.src,
+                    src: formData.src,
                     condition: formData.condition,
                     brand: formData.brand,
                     name: formData.name,

@@ -7,7 +7,8 @@ exports.up = function(knex, Promise) {
         table.integer('condition');
         
 
-        table.string('src');
+        table.jsonb('src'); 
+        
         table.string('name').notNullable();
         table.string('sizeWidth');
         table.string('sizeHeight');
