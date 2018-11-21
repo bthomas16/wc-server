@@ -43,10 +43,10 @@ function uploadWatchImagesToS3(images, res)
                 await uploadedImages.push(data);
                 
                 if (uploadedImages.length == images.length) {
-                    // uploadedImages.forEach((image, index) => {
-                    //     image.src = image.location;
-                    //     image.order = index;
-                    // });
+                    uploadedImages.forEach((image, index) => {
+                        image.src = image.location;
+                        image.order = index;
+                    });
                 res.status(201).json({uploadedImages})
                 }; 
             });   

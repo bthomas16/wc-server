@@ -22,21 +22,26 @@ router.put('/', VerifyToken, (req, res) => {
 });
 
 router.get('/', VerifyToken, async (req, res) => {
-    console.log('getting collection sir')
     try
     {   
-        await knex('watch')
+        return await knex('watch')
             .orderBy('order', 'asc')
             .where('user_id', req.id)
             .then(collection => { 
-                res.status(200).json({collection});
-            })
+                collection.forEach(watch => {
+                    watch.src.images.sort((a, b) => {
+                        console.log(a, b)
+                        return a.order - b.order;
+                    })
+                })
+            res.status(200).json({collection});
+        })
     }
     catch
     {   
-        res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'})
+        return res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'})
     } 
-})
+});
 
 router.get('/number-fsot', VerifyToken, async (req, res) => {
     try
