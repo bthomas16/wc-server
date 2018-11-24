@@ -18,6 +18,9 @@ router.post('/', VerifyToken, async (req, res) => {
 router.put('/', VerifyToken, (req, res) => {
     let id = req.query.id
     let formData = req.body;
+    formData.src.images.forEach((image, index) => {
+        image.order = index;
+    });
     WatchModel.updateWatchById(id, formData, res);
 });
 
@@ -27,13 +30,14 @@ router.get('/', VerifyToken, async (req, res) => {
         return await knex('watch')
             .orderBy('order', 'asc')
             .where('user_id', req.id)
+            .andWhere('isStillInCollection', true)
             .then(collection => { 
                 collection.forEach(watch => {
                     watch.src.images.sort((a, b) => {
-                        console.log(a, b)
                         return a.order - b.order;
                     })
                 })
+                console.log('responding with collection', collection)                
             res.status(200).json({collection});
         })
     }

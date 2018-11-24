@@ -13,7 +13,7 @@ router.put('/', VerifyToken, (req, res) => {
  // change watch to be owned to no user
  function removeWatchNullUserId(id, res) {
      knex('watch').where('id', id).returning('*').update({
-         user_id: null
+         isStillInCollection: false
      }).then(watchUpdated => {
          res.status(200).json({ watch: watchUpdated[0]})
      })

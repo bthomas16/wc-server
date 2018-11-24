@@ -12,6 +12,7 @@ const RemoveWatchController = require('./controllers/RemoveWatchController');
 const UpdateOrderWatchController = require('./controllers/UpdateOrderWatchController');
 const SortFilterWatchController = require('./controllers/SortFilterWatchController');
 const DiscoverWatchesInformation = require('./controllers/DiscoverWatchesInformationController');
+const WatchNewsController = require('./controllers/WatchNewsController');
 const WatchController = require('./controllers/WatchController');
 const Upload = require('./controllers/UploadController');
 
@@ -37,6 +38,7 @@ app.use('/api/watch/remove', RemoveWatchController);
 app.use('/api/watch/update-order', UpdateOrderWatchController);
 app.use('/api/watch/sort-filter', SortFilterWatchController);
 app.use('/api/discover/watch-info', DiscoverWatchesInformation);
+app.use('/api/watch-news', WatchNewsController);
 app.use('/api/upload', Upload);
 
 app.use('/api/static-assets', express.static('public'));

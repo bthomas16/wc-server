@@ -35,6 +35,7 @@ const Watch = (function() {
                     isFullKit: formData.isFullKit,
                     model: formData.model,
                     ref: formData.ref,
+                    isStillInCollection: true,
                     
                     acquiredFor: formData.acquiredFor,
                     marketValue: formData.marketValue,
@@ -65,10 +66,10 @@ const Watch = (function() {
     async function updateWatchById(id, formData, res) {
         try 
         {
-            console.log('hopefully updating watch to db', formData);
+            console.log('hopefully updating watch to db', formData.src.images);
             knex('watch').where('id', id).returning('*').update(
                 {
-                    src: formData.src,
+                    src: { images: formData.src.images },
                     condition: formData.condition,
                     brand: formData.brand,
                     name: formData.name,
@@ -95,7 +96,7 @@ const Watch = (function() {
                     dateAcquired: formData.dateAcquired
                 }).then((watch) => {
                     console.log('did it!!!',watch)
-                    res.json({
+                    return res.json({
                         isSuccess: true,
                         message: 'Watch updated in Collection',
                         watch: watch[0]

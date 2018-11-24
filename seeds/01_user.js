@@ -5,6 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
 
     let user = {
+        id: 987654321,
         firstName: 'Larry',
         lastName: 'Moe',
         email: 'we@g.com',

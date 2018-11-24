@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
         table.integer('order');
         table.integer('condition');
         
-
         table.jsonb('src'); 
         
         table.string('name').notNullable();
@@ -27,6 +26,7 @@ exports.up = function(knex, Promise) {
         table.boolean('isFullKit');
         table.boolean('isForSale');
         table.boolean('isForTrade');
+        table.boolean('isStillInCollection');
 
         table.integer('acquiredFor');
         table.integer('forSalePrice');
