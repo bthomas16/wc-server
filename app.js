@@ -15,6 +15,7 @@ const DiscoverWatchesInformation = require('./controllers/DiscoverWatchesInforma
 const WatchNewsController = require('./controllers/WatchNewsController');
 const WatchController = require('./controllers/WatchController');
 const Upload = require('./controllers/UploadController');
+const serveStatic = require("serve-static")
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,6 +44,7 @@ app.use('/api/upload', Upload);
 
 app.use('/api/static-assets', express.static('public'));
 
+app.use(serveStatic(__dirname + "/dist"));
 
 app.listen(8081, ()=> {
   console.log('listening on port 8081')

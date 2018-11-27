@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     let watches = [{
       user_id: 987654321,
 
-      src: { images: [{src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 0}] },
+      src: { images: [{src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 0}, {src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 1}, {src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 2}] },
       condition: 8,
       brand: "Bromega",
       name: "Chillario",
@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
       {
       user_id: 987654321,
 
-      src: { images: [{src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 0}] },
+      src: { images: [{src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 0}, {src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 1}, {src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNNt8CbFQgNfr9iH8U1y56l_4GqhsE6hnEJCWHP5kcvmJophw_Q", order: 2}] },
       condition: 8,
       brand: "Bromacho",
       name: "Trillario",

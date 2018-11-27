@@ -8,6 +8,6 @@ echo "********************"
 echo "NODE_ENV=$1" > .env
 nodemon
 
-# use ./run-env.sh 'development || staging || production'
+# use ./run-env.sh 'development' || 'staging' || 'production'
 
 

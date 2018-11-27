@@ -23,6 +23,7 @@
     "passport-local": "^1.0.0",
     "pg": "^7.4.3",
     "promise": "^8.0.1",
+    "serve-static": "^1.13.2",
     "zone.js": "0.8.5"
   },
   "devDependencies": {
@@ -31,7 +32,9 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "postinstall": "npm run build",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
