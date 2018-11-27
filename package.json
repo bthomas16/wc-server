@@ -32,8 +32,7 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha --recursive",
-    "start": "node app.js"
+    "test": "mocha --recursive"
   },
   "keywords": [],
   "author": "",
