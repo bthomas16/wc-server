@@ -32,6 +32,7 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
+    "start": "node server.js",
     "test": "mocha --recursive"
   },
   "keywords": [],
