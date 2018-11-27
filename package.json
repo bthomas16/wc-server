@@ -33,7 +33,6 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "postinstall": "npm run start",
     "start": "node app.js"
   },
   "keywords": [],
