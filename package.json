@@ -1,7 +1,7 @@
 {
-  "name": "Server",
+  "name": "server",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "aws-sdk": "^2.312.0",
     "axios": "^0.18.0",
