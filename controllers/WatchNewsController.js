@@ -7,19 +7,19 @@ const articles = [
         id: 1,
         title: "Snoopy",
         text: "1st All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
-        articleImg: "http://localhost:8081/api/static-assets/blankprofpic.png"
+        articleImg: "/api/static-assets/blankprofpic.png"
     },
     {
         id: 2,
         title: "loopy",
         text: "2nd All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
-        articleImg: "http://localhost:8081/api/static-assets/blankprofpic.png"
+        articleImg: "/api/static-assets/blankprofpic.png"
     },
     {
         id: 3,
         title: "droples",
         text: "3rd All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
-        articleImg: "http://localhost:8081/api/static-assets/blankprofpic.png"
+        articleImg: "/api/static-assets/blankprofpic.png"
     },
 ];
 

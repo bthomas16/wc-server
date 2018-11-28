@@ -6,7 +6,8 @@ bodyParser = require('body-parser'),
 busboy = require('connect-busboy'),
 busboyBodyParser = require('busboy-body-parser'),
 Busboy = require('busboy'),
-VerifyToken = require('../middleware/VerifyToken');
+VerifyToken = require('../middleware/VerifyToken'),
+config = require('../config/config');
 
 router.use(busboy())
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -14,10 +15,10 @@ router.use(bodyParser.json());
 router.use(busboyBodyParser());
 
 const s3bucket = new AWS.S3({
-    accessKeyId: process.env.ACCESS_KEY_ID,
-    secretAccessKey: process.env.SECRET_ACCESS_KEY,
-    Bucket: process.env.BUCKET,
-    region: process.env.REGION
+    accessKeyId: config.ACCESS_KEY_ID,
+    secretAccessKey: config.SECRET_ACCESS_KEY,
+    Bucket: config.BUCKET,
+    region: config.REGION
 });
 
 function uploadWatchImagesToS3(images, res) 
@@ -36,17 +37,20 @@ function uploadWatchImagesToS3(images, res)
                 ACL: 'public-read'
             };
 
-            s3bucket.upload(params, async function (err, data) {
+            s3bucket.upload(params, function (err, data) {
                 if (err) {
                     console.log('error in callback', err);
                 }
-                await uploadedImages.push(data);
+                uploadedImages.push(data);
                 
                 if (uploadedImages.length == images.length) {
                     uploadedImages.forEach((image, index) => {
-                        image.src = image.location;
+                        console.log('is this the problem', image)
+                        image.src = image.Location;
                         image.order = index;
                     });
+        console.log('return uploaded dudes', uploadedImages)
+                    
                 res.status(201).json({uploadedImages})
                 }; 
             });   
@@ -60,6 +64,7 @@ router.post('/watch-images', VerifyToken, function (req, res, next) {
     busboy.on('finish', function() {
         let files = req.files;
         let imagesArr = Object.values(files); //turn object of objects into array of objects
+        console.log('upload this images arr', imagesArr)
         uploadWatchImagesToS3(imagesArr, res);
    });
     req.pipe(busboy);

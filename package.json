@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
   "dependencies": {
     "aws-sdk": "^2.312.0",
     "axios": "^0.18.0",
@@ -32,8 +32,7 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "npm run dev",
+    "start": "node app.js",
     "test": "mocha --recursive"
   },
   "keywords": [],

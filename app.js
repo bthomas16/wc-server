@@ -15,14 +15,19 @@ const DiscoverWatchesInformation = require('./controllers/DiscoverWatchesInforma
 const WatchNewsController = require('./controllers/WatchNewsController');
 const WatchController = require('./controllers/WatchController');
 const Upload = require('./controllers/UploadController');
-const serveStatic = require("serve-static")
+const serveStatic = require("serve-static");
+const path = require('path');
+const port = process.env.PORT || 8081;
+
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.static(__dirname + "/dist"));
+
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
   res.header("Access-Control-Request-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
@@ -44,10 +49,12 @@ app.use('/api/upload', Upload);
 
 app.use('/api/static-assets', express.static('public'));
 
-app.use(serveStatic(__dirname + "/dist"));
+app.get('*', (req,res) => {
+  res.sendFile((__dirname + '/dist/index.html'));
+})
 
-app.listen(8081, ()=> {
-  console.log('listening on port 8081')
+app.listen(port, ()=> {
+  console.log(`listening on port ${port}`)
 })
 
 module.exports = app;
