@@ -1,5 +1,5 @@
 
-exports.up = function(knex, Promise) {
+moduexports.up = function(knex, Promise) {
     return knex.schema.createTable('user_watch_favorited', (table) => {
         table.increments('id').primary();
         table.integer('user_id').references('id').inTable('peeps');

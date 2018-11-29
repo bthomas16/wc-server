@@ -21,7 +21,6 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "pg": "^7.4.3",
     "promise": "^8.0.1",
     "serve-static": "^1.13.2",
     "zone.js": "0.8.5"
@@ -33,6 +32,7 @@
   },
   "scripts": {
     "start": "node app.js",
+    "postinstall": "cd /migrations && cat *.js | heroku pg:psql",
     "test": "mocha --recursive"
   },
   "keywords": [],

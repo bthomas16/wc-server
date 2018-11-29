@@ -5,18 +5,15 @@ echo "********************"
 echo "NODE_ENV=$1"
 export NODE_ENV=$1
 
-# knex migrate:rollback
+npm install
 
-# knex migrate:latest
-
-# knex seed:run
-
-# npm test
+cd ./migrations
+export cat *.js | heroku pg:psql
 
 echo "Starting App with nodemon"
 echo "********************"
 
-nodemon
+# nodemon
 
 # use ./run-env.sh 'development' || 'staging' || 'production'
 
