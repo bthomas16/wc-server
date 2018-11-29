@@ -5,11 +5,6 @@ echo "********************"
 echo "NODE_ENV=$1"
 export NODE_ENV=$1
 
-npm install
-
-cd ./migrations
-export cat *.js | heroku pg:psql
-
 echo "Starting App with nodemon"
 echo "********************"
 
