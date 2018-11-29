@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "postinstall": "cd /migrations && cat *.js | heroku pg:psql",
+    "postinstall": "npm i",
     "test": "mocha --recursive"
   },
   "keywords": [],
