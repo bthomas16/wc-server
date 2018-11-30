@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "postinstall": "npm install && knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "postinstall": "heroku run npm install && heroku run knex migrate:latest && heroku run knex seed:run",
     "test": "mocha --recursive"
   },
   "keywords": [],
