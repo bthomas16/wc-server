@@ -1,4 +1,4 @@
-const knex = require('../config/db');
+const knex = require('../config/db.js');
 
 
 const getWatchCollectionByCondition = (id, conditionToFilterBy) => {

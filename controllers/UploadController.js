@@ -1,6 +1,6 @@
 const express = require('express'),
 router = express.Router(),
-knex = require('../config/db'),
+knex = require('../config/db.js'),
 AWS = require('aws-sdk'),
 bodyParser = require('body-parser'),
 busboy = require('connect-busboy'),

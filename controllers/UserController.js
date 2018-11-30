@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../config/db');
+const knex = require('../config/db.js');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user')();
