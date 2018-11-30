@@ -9,13 +9,13 @@ module.exports = {
   // Mirror image of production => push to prod from staging
   staging: {
     client: 'postgresql',
-    connection: 'postgres://sonduksfvgscvq:cd550caa92873a72ad096e39272df99ff0ea59f1632229fc36f780ece6b601e1@ec2-54-235-193-0.compute-1.amazonaws.com:5432/dc4i1q8tqsens6'
+    connection: 'postgres://fvzkyjrmlckkgo:da71c84cdff561d14cee7fa1b27734a9db40e60d9b89beb39c10dc38efa8f448@ec2-54-204-40-248.compute-1.amazonaws.com:5432/dcepvme13in9n'
 },
 
   // most stable and tested version of staging
   production: {
     client: 'postgresql',
-    connection: 'postgres://sonduksfvgscvq:cd550caa92873a72ad096e39272df99ff0ea59f1632229fc36f780ece6b601e1@ec2-54-235-193-0.compute-1.amazonaws.com:5432/dc4i1q8tqsens6'
+    connection: 'postgres://fvzkyjrmlckkgo:da71c84cdff561d14cee7fa1b27734a9db40e60d9b89beb39c10dc38efa8f448@ec2-54-204-40-248.compute-1.amazonaws.com:5432/dcepvme13in9n'
   } 
 
 };
