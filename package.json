@@ -33,6 +33,7 @@
   },
   "scripts": {
     "start": "node app.js",
+    "postinstall": "knex migrate:latest --env staging && knex seed:run --env staging",
     "test": "mocha --recursive"
   },
   "keywords": [],
