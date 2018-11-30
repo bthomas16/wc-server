@@ -21,6 +21,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "pg": "^7.7.1",
     "promise": "^8.0.1",
     "serve-static": "^1.13.2",
     "zone.js": "0.8.5"
@@ -31,9 +32,7 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "postinstall": "node app.js",
-    "test": "mocha --recursive"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
