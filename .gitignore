@@ -1,3 +1,4 @@
 /knexfile
 **/config/
+**/dist/
 *.env
