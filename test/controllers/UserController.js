@@ -11,7 +11,7 @@ chai.use(require('chai-http'));
 const app = require('../../app.js');
 
 describe('User Authentication - API', function() {
-    this.timeout(5000);
+    // this.timeout(5000);
 
     after(function() {
         knex('peeps').where('email', 'jb@g.com').del().then(() => {
