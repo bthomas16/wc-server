@@ -11,12 +11,9 @@ chai.use(require('chai-http'));
 const app = require('../../app.js');
 
 describe('User Authentication - API', function() {
-    // this.timeout(5000);
 
-    after(function() {
-        knex('peeps').where('email', 'jb@g.com').del().then(() => {
-            console.log('Record Deleted')
-        })
+    after(async function() {
+        await knex('peeps').where('email', 'jb@g.com').del()
     });
     
     // LOGIN TESTS
@@ -33,7 +30,7 @@ describe('User Authentication - API', function() {
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');
-                    assert.equal(res.body.message, 'Please provide a valid form', 'No empty form fields');
+                    assert.equal(res.body.message, 'Incorrect email or password', 'No empty form fields');
                 });
         });
 
@@ -48,7 +45,7 @@ describe('User Authentication - API', function() {
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');                
-                    assert.equal(res.body.message, 'Please provide a valid form', 'No empty form fields')
+                    assert.equal(res.body.message, 'Incorrect email or password', 'No empty form fields')
                 });
         });
 

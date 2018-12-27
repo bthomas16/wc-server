@@ -34,4 +34,13 @@ router.put('/', VerifyToken, (req, res) => {
      })
  })
 
+ router.get('/', VerifyToken, async (req, res) => {
+     let id = req.id;
+    knex.select('*')
+     .from('watch')
+     .where('watch.user_id', id)
+     .andWhere('isStillInCollection', false)
+     .fullOuterJoin('watch', 'user_watch_favorited.watch_id', 'watch.id')
+ })
+
  module.exports = router;

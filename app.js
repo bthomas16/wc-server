@@ -15,10 +15,16 @@ const DiscoverWatchesInformation = require('./controllers/DiscoverWatchesInforma
 const WatchNewsController = require('./controllers/WatchNewsController');
 const WatchController = require('./controllers/WatchController');
 const Upload = require('./controllers/UploadController');
+const ContactEmailController = require('./controllers/Emails/ContactUs');
+const WelcomeEmailController = require('./controllers/Emails/WelcomeEmail');
+const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPassword');
 const serveStatic = require("serve-static");
 const path = require('path');
+const cors = require('cors')
 const port = process.env.PORT || 8081;
 
+
+app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,12 +52,17 @@ app.use('/api/watch/sort-filter', SortFilterWatchController);
 app.use('/api/discover/watch-info', DiscoverWatchesInformation);
 app.use('/api/watch-news', WatchNewsController);
 app.use('/api/upload', Upload);
+app.use('/api/email/contact', ContactEmailController);
+app.use('/api/email/welcome', WelcomeEmailController);
+app.use('/api/email/forgot-password', ForgotPasswordEmailController);
 
 app.use('/api/static-assets', express.static('public'));
 
-app.get('*', (req,res) => {
-  res.sendFile((__dirname + '/dist/index.html'));
-})
+if (process.env.NODE_ENV != 'development') {
+  app.get('*', (req,res) => {
+    res.sendFile((__dirname + '/dist/index.html'));
+  })
+}
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)

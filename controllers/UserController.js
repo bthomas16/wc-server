@@ -17,53 +17,46 @@ router.post('/register', async (req, res) =>
   if(!req.body)  
     res.json({isSuccess: false, message: 'Please send a valid form'});
   
-  let validForm = User.ValidRegisterFormData(req.body, res);
+  let validForm = User.ValidRegisterFormData(req.body);
 
-  if(validForm)
-      User.CheckDuplicatesHashAndSaveUser(req.body, res)
+  if(validForm.isSuccess) {
+    let value = await User.CheckDuplicatesHashAndSaveUser(req.body);
+    if (value.isSuccess) {
+      res.json({isSuccess: value.isSuccess, message: value.message, token: value.token, message: value.message})
+    }
+    else {
+      res.json({isSuccess: value.isSuccess, message: value.message });
+    }
+  }
 });
     
 router.post('/login', async (req, res) => 
 {
-  try {
-
+  try 
+  {
       let formData = req.body;
-      let validForm = User.ValidLoginFormData(formData);
-      if (!validForm) {
-        return res.json({isSuccess: false, message: 'Please provide a valid form'})
-      }
-
-      let user = await User.RetrieveUser(formData);
-      if (!user) {
-        return res.json({isSuccess: false, message: 'Incorrect email or password'});
-      }
-
-      let token = await User.SetJwtToken(user);
-      bcrypt.compare(formData.password, user.password, async function(err, match) {
-        
-        // LOGIN FAIL
-        if (err) {
-          return res.json({isSuccess: false, message: 'Incorrect email or password'})
-        }
-
-        // LOGIN SUCCESS
-        if(match) {
-          res.status(200).json({
-            isSuccess: true,
-            message: 'Successfully logged in',
-            token, 
-            user
+      let value = await ValidateAndFormGetUser(formData);
+      let returnObj;
+      if(value.isSuccess) {
+        User.SetJwtToken(value.user).then((token) => {
+          bcrypt.compare(formData.password, value.user.password, (err, match) => {
+            if (err) {
+              res.json({ isSuccess: value.isSuccess, message: value.message });
+            }
+            if (match) {
+              res.json({ isSuccess: value.isSuccess, message: value.message, user: value.user, token });
+            }
           })
-        }
-        else {
-          return res.json({isSuccess: false, message: 'Incorrect email or password'})
-        }
-    })
+        })
+      }
+    else {
+      res.json({ isSuccess: value.isSuccess, message: value.message }); 
+    }
   }
-  catch (err) {
+  catch (err) 
+  {
     console.log('matchwer!', err)
-    
-    return res.status(401).json({isSuccess: false, message: 'Incorrect email or password', err});
+    res.status(401).json({isSuccess: false, message: 'Incorrect email or password', err});
   }
 });
 
@@ -149,7 +142,23 @@ router.put('/edit', VerifyToken, (req, res) => {
   catch (err) {
     console.log(err)
   }
-})
+});
+
+async function ValidateAndFormGetUser(formData) {
+    let validForm = await User.ValidLoginFormData(formData);
+    let returnObj;
+    if (!validForm) {
+      returnObj = { isSuccess: false, message: 'Please provide a valid form'};
+    }
+
+    let user = await User.RetrieveUser(formData);
+    if (!user) {
+      returnObj = { isSuccess: false, message: 'Incorrect email or password'};
+    }
+
+    else returnObj = { isSuccess: true, message: 'Should login now', user};
+    return returnObj;
+}
 
 const UpdateUser = async function(formData, userId){
     await knex('peeps').where('id', userId).returning('*').update({
@@ -163,6 +172,10 @@ const UpdateUser = async function(formData, userId){
     }).catch(err => {
       return err;      
     })
+}
+
+const CompareHash = function(formPassword, user, token){
+  
 }
 
 

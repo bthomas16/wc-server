@@ -9,19 +9,23 @@ const VerifyToken = require('../middleware/VerifyToken.js');
 
 router.post('/', VerifyToken, async (req, res) => {
     let formData = req.body;
-    console.log('soup', req.body)
-    if (WatchModel.validateWatchFormData(formData, res));
-        WatchModel.saveWatchToCollectionDB(formData, req.id, res); 
+    let form = WatchModel.validateWatchFormData(formData);
+    if (form.isSuccess) {
+        await WatchModel.saveWatchToCollectionDB(formData, req.id, res); 
+    }
+    else {
+        res.json({isSuccess: form.isSuccess, message: form.message})
+    }
 });
 
 // ?id="id"
-router.put('/', VerifyToken, (req, res) => {
-    let id = req.query.id
+router.put('/', VerifyToken, async (req, res) => {
+    let id = req.query.id;
     let formData = req.body;
     formData.src.images.forEach((image, index) => {
         image.order = index;
     });
-    WatchModel.updateWatchById(id, formData, res);
+    await WatchModel.updateWatchById(id, formData, res);
 });
 
 router.get('/', VerifyToken, async (req, res) => {
@@ -36,8 +40,7 @@ router.get('/', VerifyToken, async (req, res) => {
                     watch.src.images.sort((a, b) => {
                         return a.order - b.order;
                     })
-                })
-                console.log('responding with collection', collection)                
+                })             
             res.status(200).json({collection});
         })
     }
@@ -55,6 +58,7 @@ router.get('/number-fsot', VerifyToken, async (req, res) => {
             .andWhere(function() {
                 this.where('isForSale', true)
                 .andWhere('isForTrade', true)
+                .andWhere('isStillInCollection', true)
             })
             .then(collection => { 
                 let numberFSOT = collection.length
@@ -66,5 +70,30 @@ router.get('/number-fsot', VerifyToken, async (req, res) => {
         res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'})
     } 
 })
+
+router.get('/removed', VerifyToken, (req, res) => {
+    // try
+    // {   
+        console.log('fookin')
+        let id = req.query.id; // watch id
+        console.log('pookin', id)
+        
+        return knex.select('*')
+        .from('user_watch_removed')
+        .where('user_watch_removed.user_id', req.id)
+        .fullOuterJoin('watch', 'user_watch_removed.watch_id', 'watch.id')
+        .then(collection => { 
+            collection.forEach(watch => {
+            console.log('I got your fucking shit here, bitch', collection)                
+            res.status(200).json({collection: collection[0]});
+        })
+    })
+    // }
+    // catch
+    // {   
+    //     return res.status(500).json({isSuccess: false, message: 'Could not get collection at this time'})
+    // } 
+});
+
 
 module.exports = router;

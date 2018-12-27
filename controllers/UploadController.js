@@ -45,7 +45,6 @@ function uploadWatchImagesToS3(images, res)
                 
                 if (uploadedImages.length == images.length) {
                     uploadedImages.forEach((image, index) => {
-                        console.log('is this the problem', image)
                         image.src = image.Location;
                         image.order = index;
                     });
