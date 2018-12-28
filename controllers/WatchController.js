@@ -31,6 +31,7 @@ router.put('/', VerifyToken, async (req, res) => {
 router.get('/', VerifyToken, async (req, res) => {
     try
     {   
+        console.log('got req.id', req.id)
         return await knex('watch')
             .orderBy('order', 'asc')
             .where('user_id', req.id)
@@ -41,7 +42,7 @@ router.get('/', VerifyToken, async (req, res) => {
                         return a.order - b.order;
                     })
                 })             
-            res.status(200).json({collection});
+            res.status(200).json({isSuccess:true, message: 'Collection retrieved', collection});
         })
     }
     catch

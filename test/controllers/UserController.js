@@ -30,7 +30,7 @@ describe('User Authentication - API', function() {
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');
-                    assert.equal(res.body.message, 'Incorrect email or password', 'No empty form fields');
+                    assert.equal(res.body.message, 'Please provide a valid form', 'No empty form fields');
                 });
         });
 
@@ -45,7 +45,7 @@ describe('User Authentication - API', function() {
                     expect(res).to.be.json;
                     expect(res.body).to.be.an('object');
                     assert.equal(res.body.isSuccess, false, 'success should be false');                
-                    assert.equal(res.body.message, 'Incorrect email or password', 'No empty form fields')
+                    assert.equal(res.body.message, 'Please provide a valid form', 'No empty form fields')
                 });
         });
 

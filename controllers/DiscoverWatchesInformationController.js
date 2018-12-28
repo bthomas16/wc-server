@@ -45,7 +45,6 @@ const watchInfos = [
 router.get('/', (req, res) => {
     let watchInfoId = req.query.watchInfoId;
     let watchInfo = watchInfos.find(x => x.id == watchInfoId);
-    console.log('here... ', watchInfo);
     res.json({watchInfo});
 });
 

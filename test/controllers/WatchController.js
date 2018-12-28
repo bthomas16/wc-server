@@ -14,18 +14,16 @@ const app = require('../../app.js');
 describe('User Watches - API', function() {
     this.timeout(5000);
     let token;
-    let user = knex('peeps').where('id', 2).then(user => {
-        return user;
-    })
 
     before(function() {
-        token = jwt.sign({ id: user.id }, config.secret, {
+        // would normally lookup user by ID to get user.id
+        token = jwt.sign({ id: 987654321 }, config.secret, {
             expiresIn: 86400 // expires in 24 hours
           })
     });
 
-    after(function() {
-
+    after(async function() {
+        await knex('watch').where('user_id', 987654321).del()
     });
 
     it("Should Fail Adding a New Watch - watch must have a name", function() {
@@ -59,6 +57,7 @@ describe('User Watches - API', function() {
                 'authorization': token
             })
             .send({
+                user_id: 987654321,
                 name: 'TestName',
                 src: {
                     images: [{
@@ -150,13 +149,11 @@ describe('User Watches - API', function() {
                 'authorization': token
             })
             .then(function(res) {
+                console.log(res.body)
                 expect(res).to.be.json;
                 expect(res.body).to.be.an('object');
                 assert.equal(res.body.isSuccess, true, 'success should be true');
                 assert.isNotNull(res.body.collection)
             });
     });
-
-
-    
 });
