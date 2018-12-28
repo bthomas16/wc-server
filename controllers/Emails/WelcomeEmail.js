@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const nodeMailer = require('nodeMailer')
+const nodeMailer = require('nodemailer')
 
 router.post('/', (req, res) => {
     let formData = req.body;
