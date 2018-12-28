@@ -83,5 +83,20 @@ router.get('/favorites/', VerifyToken, async (req, res) => {
     } 
 })
 
+router.get('/previous/', VerifyToken, async (req, res) => {
+    try 
+    {
+        let userId = req.id;
+        let option = req.query.option;
+        let collection = await SortFilter.GetPreviousWatches(userId, option);
+        res.status(200).json({collection})
+    }
+    catch (err)
+    {
+        console.log(err)
+        res.status(500).json({err})
+    } 
+})
+
 
  module.exports = router;

@@ -149,7 +149,23 @@ router.put('/edit', VerifyToken, (req, res) => {
   catch (err) {
     console.log(err)
   }
-})
+});
+
+async function ValidateAndFormGetUser(formData) {
+    let validForm = await User.ValidLoginFormData(formData);
+    let returnObj;
+    if (!validForm) {
+      returnObj = { isSuccess: false, message: 'Please provide a valid form'};
+    }
+
+    let user = await User.RetrieveUser(formData);
+    if (!user) {
+      returnObj = { isSuccess: false, message: 'Incorrect email or password'};
+    }
+
+    else returnObj = { isSuccess: true, message: 'Should login now', user};
+    return returnObj;
+}
 
 const UpdateUser = async function(formData, userId){
     await knex('peeps').where('id', userId).returning('*').update({
@@ -163,6 +179,10 @@ const UpdateUser = async function(formData, userId){
     }).catch(err => {
       return err;      
     })
+}
+
+const CompareHash = function(formPassword, user, token){
+  
 }
 
 
