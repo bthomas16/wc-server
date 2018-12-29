@@ -58,11 +58,11 @@ app.use('/api/email/forgot-password', ForgotPasswordEmailController);
 
 app.use('/api/static-assets', express.static('public'));
 
-if (process.env.NODE_ENV != 'development') {
-  app.get('*', (req,res) => {
-    res.sendFile((__dirname + '/dist/index.html'));
-  })  
-}
+// if (process.env.NODE_ENV != 'development') {
+app.get('*', (req,res) => {
+  res.sendFile((__dirname + '/dist/index.html'));
+})  
+// }
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)
