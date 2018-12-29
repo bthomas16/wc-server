@@ -56,12 +56,9 @@ app.use('/api/static-assets', express.static('public'));
 
 
 app.use(express.static(__dirname + '/dist'))
-if (process.env.NODE_ENV !== 'development') {
-  console.log('env is', process.env.NODE_ENV)
-  app.get('*', (req,res) => {
-    res.sendFile((__dirname + '/dist/index.html'));
-  })  
-}
+app.get('*', (req,res) => {
+  res.sendFile((__dirname + '/dist/index.html'));
+})  
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)
