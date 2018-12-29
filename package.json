@@ -37,7 +37,6 @@
   },
   "scripts": {
     "start": "node app.js",
-    "start-staging": "NODE_ENV=staging && node app.js",
     "test": "mocha --recursive"
   },
   "keywords": [],
