@@ -20,11 +20,7 @@ const WelcomeEmailController = require('./controllers/Emails/WelcomeEmail');
 const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPassword');
 const serveStatic = require("serve-static");
 const path = require('path');
-const cors = require('cors')
 const port = process.env.PORT || 8081;
-
-
-app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -58,11 +54,12 @@ app.use('/api/email/forgot-password', ForgotPasswordEmailController);
 
 app.use('/api/static-assets', express.static('public'));
 
-// if (process.env.NODE_ENV != 'development') {
-app.get('*', (req,res) => {
-  res.sendFile((__dirname + '/dist/index.html'));
-})  
-// }
+if (process.env.NODE_ENV !== 'development') {
+  console.log('env is', process.env.NODE_ENV)
+  app.get('*', (req,res) => {
+    res.sendFile((__dirname + '/dist/index.html'));
+  })  
+}
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)
