@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     let watches = [{
       user_id: 987654321,
 
-      src: { images: [{src: "http://localhost:8081/api/static-assets/zelos-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/tcm-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/tcm-white-featured.jpg", order: 2}] },
+      src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/zelos-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-white-featured.jpg`, order: 2}] },
       condition: 8,
       brand: "Bromega",
       name: "Chillario",
@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
       {
       user_id: 987654321,
 
-      src: { images: [{src: "http://localhost:8081/api/static-assets/ch-ward-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/aragon-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/fortuna-featured.jpg", order: 2}] },      
+      src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/ch-ward-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/aragon-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/fortuna-featured.jpg`, order: 2}] },      
       condition: 8,
       brand: "Bromacho",
       name: "Trillario",
@@ -65,7 +65,7 @@ exports.seed = function(knex, Promise) {
       {
         user_id: 987654321,
   
-        src: { images: [{src: "http://localhost:8081/api/static-assets/zelos-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/tcm-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/tcm-white-featured.jpg", order: 2}] },
+        src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/zelos-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-white-featured.jpg`, order: 2}] },
         condition: 8,
         brand: "Brillchancho",
         name: "Chillario",
@@ -95,7 +95,7 @@ exports.seed = function(knex, Promise) {
         {
         user_id: 987654321,
   
-        src: { images: [{src: "http://localhost:8081/api/static-assets/ch-ward-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/aragon-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/fortuna-featured.jpg", order: 2}] },      
+        src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/ch-ward-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/aragon-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/fortuna-featured.jpg`, order: 2}] },      
         condition: 8,
         brand: "BeardFasay",
         name: "BeardFasay",
@@ -125,7 +125,7 @@ exports.seed = function(knex, Promise) {
         {
           user_id: 987654321,
     
-          src: { images: [{src: "http://localhost:8081/api/static-assets/zelos-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/tcm-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/tcm-white-featured.jpg", order: 2}] },
+          src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/zelos-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-white-featured.jpg`, order: 2}] },
           condition: 8,
           brand: "Trilltrega",
           name: "Trilltrega",
@@ -155,7 +155,7 @@ exports.seed = function(knex, Promise) {
           {
           user_id: 987654321,
     
-          src: { images: [{src: "http://localhost:8081/api/static-assets/ch-ward-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/aragon-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/fortuna-featured.jpg", order: 2}] },      
+          src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/ch-ward-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/aragon-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/fortuna-featured.jpg`, order: 2}] },      
           condition: 8,
           brand: "Broschmega",
           name: "Broschmega",
@@ -185,7 +185,7 @@ exports.seed = function(knex, Promise) {
           {
             user_id: 987654321,
       
-            src: { images: [{src: "http://localhost:8081/api/static-assets/zelos-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/tcm-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/tcm-white-featured.jpg", order: 2}] },
+            src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/zelos-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-white-featured.jpg`, order: 2}] },
             condition: 8,
             brand: "Hotega",
             name: "BrillBario",
@@ -215,7 +215,7 @@ exports.seed = function(knex, Promise) {
             {
             user_id: 987654321,
       
-            src: { images: [{src: "http://localhost:8081/api/static-assets/ch-ward-featured.jpg", order: 0}, {src: "http://localhost:8081/api/static-assets/aragon-featured.jpg", order: 1}, {src: "http://localhost:8081/api/static-assets/fortuna-featured.jpg", order: 2}] },      
+            src: { images: [{src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/ch-ward-featured.jpg`, order: 0}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/aragon-featured.jpg`, order: 1}, {src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/fortuna-featured.jpg`, order: 2}] },      
             condition: 8,
             brand: "Hancho",
             name: "Schmoschmancho",
