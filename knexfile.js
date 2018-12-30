@@ -9,7 +9,7 @@ module.exports = {
   // Mirror image of production => push to prod from staging
   staging: {
     client: 'postgresql',
-    connection: 'postgres://fvzkyjrmlckkgo:da71c84cdff561d14cee7fa1b27734a9db40e60d9b89beb39c10dc38efa8f448@ec2-54-204-40-248.compute-1.amazonaws.com:5432/dcepvme13in9n'
+    connection: 'postgres://exjejauadqyquc:29f39a788a465a1487d59dd9672d955dddb1068d18efe00cb44bbba9cb9f803c@ec2-54-235-169-191.compute-1.amazonaws.com:5432/d3148t2bp4gd9n'
 },
 
   // most stable and tested version of staging

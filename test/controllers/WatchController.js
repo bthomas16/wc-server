@@ -117,10 +117,10 @@ describe('User Watches - API', function() {
                 name: 'TestName_Edited',
                 src: {
                     images: [{
-                        src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-featured.jpg`
+                        src: `${process.env.ROOT_API}/api/static-assets/tcm-featured.jpg`
                     },
                     {
-                        src: `${process.env.VUE_APP_ROOT_API}/api/static-assets/tcm-white-featured.jpg`
+                        src: `${process.env.ROOT_API}/api/static-assets/tcm-white-featured.jpg`
                     }]
                 },
                 watchStyle: 'orienteering',

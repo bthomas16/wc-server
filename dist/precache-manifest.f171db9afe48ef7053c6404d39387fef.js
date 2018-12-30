@@ -37,6 +37,10 @@ self.__precacheManifest = [
   },
   {
     "revision": "asod9f67asd9f67",
-    "url": "https://staging-watch-collection.herokuapp.com/api/static-assets/tablebg.png"
+    "url": "https://staging-watch-collection.herokuapp.com/api/static-assets/tablebg.jpg"
+  },
+  {
+    "revision": "adf87d9f",
+    "url": "https://staging-watch-collection.herokuapp.com/api/static-assets/watcheshomecardbg.jpg"
   }
 ];
