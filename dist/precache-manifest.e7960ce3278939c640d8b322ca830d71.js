@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.95342a27.js"
   },
   {
-    "revision": "61c74cad2a5ae1d0e3b6",
-    "url": "/js/app.4fbc6066.js"
+    "revision": "2d8de6edfa9907d34587",
+    "url": "/js/app.a75e2316.js"
   },
   {
     "revision": "f0bd3b6164e8ccf26f14",
     "url": "/js/DiscoverWatches.480544b4.js"
   },
   {
-    "revision": "1e5b1f11aaa83b73ace03090fbd6801a",
+    "revision": "734c1d7eb35b582dc1cfd7ad686a9950",
     "url": "/index.html"
   },
   {
@@ -24,11 +24,19 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors.17b216ce.css"
   },
   {
-    "revision": "61c74cad2a5ae1d0e3b6",
-    "url": "/css/app.8cd23793.css"
+    "revision": "2d8de6edfa9907d34587",
+    "url": "/css/app.e68ff7bc.css"
   },
   {
     "revision": "f0bd3b6164e8ccf26f14",
     "url": "/css/DiscoverWatches.a6a6fbb9.css"
+  },
+  {
+    "revision": "asod9f67asd9f67",
+    "url": "https://staging-watch-collection.herokuapp.com/api/static-assets/tablebg.png"
+  },
+  {
+    "revision": "pmghu98hi865",
+    "url": "https://staging-watch-collection.herokuapp.com/api/static-assets/watcheshomecardbg.png"
   }
 ];
