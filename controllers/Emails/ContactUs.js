@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
         from: '"Watch SOC" <watchsoc_info@watchsoc.com>', // sender address
         to: req.body.emailTo, // list of receivers
         subject: "Your message to Watch SOC", // Subject line
-        html: `<p>Here is a copy of the message you sent to Watch Collection:</p>
+        html: `<p>Here is a copy of the message you sent to Watch SOC:</p>
                <p>${req.body.messageBody}</p>
                <p>We will get back to you as soon as possible!</p>
                <a href="${process.env.BASE_URL}/profile" target="_blank">Visit your profile here</a>` // html body
