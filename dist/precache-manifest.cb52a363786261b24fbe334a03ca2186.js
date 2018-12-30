@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.95342a27.js"
   },
   {
-    "revision": "b789b4f31c6d8b48d305",
-    "url": "/js/app.6cbce72e.js"
+    "revision": "1995cd94c34217af546a",
+    "url": "/js/app.a85afc7c.js"
   },
   {
     "revision": "f0bd3b6164e8ccf26f14",
     "url": "/js/DiscoverWatches.480544b4.js"
   },
   {
-    "revision": "58de8c570fad22f8c386897b26900409",
+    "revision": "58178d7180713d0b72487ce9fba0c550",
     "url": "/index.html"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors.17b216ce.css"
   },
   {
-    "revision": "b789b4f31c6d8b48d305",
-    "url": "/css/app.18d2e11e.css"
+    "revision": "1995cd94c34217af546a",
+    "url": "/css/app.1b4c7d62.css"
   },
   {
     "revision": "f0bd3b6164e8ccf26f14",
@@ -37,6 +37,5 @@ self.__precacheManifest = [
   },
   {
     "revision": "pmghu98hi865",
-    "url": "https://staging-watch-collection.herokuapp.com/api/static-assets/watcheshomecardbg.png"
   }
 ];
