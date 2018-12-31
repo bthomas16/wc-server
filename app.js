@@ -27,7 +27,6 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + "/dist"));
 
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
@@ -35,7 +34,6 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
   next();
 });
-
 
 app.use(bodyParser.json());
 
@@ -57,7 +55,6 @@ app.use('/api/static-assets', express.static('public'));
 
 app.use(express.static(__dirname + '/dist'))
 if (process.env.NODE_ENV !== 'development') {
-  console.log('env is', process.env.NODE_ENV)
   app.get('*', (req,res) => {
     res.sendFile((__dirname + '/dist/index.html'));
   })  

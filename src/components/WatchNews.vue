@@ -1,0 +1,59 @@
+<template>
+    <b-container fluid>
+        <b-row class="p-1 p-md-3">
+            <p class="h2 pt-3 pl-3">Latest Watch News</p>
+            <b-col cols="12">
+                <b-row no-gutters v-for="article in articles" :key="article.id" class="my-2 border p-1" @click="routeToArticle(article.id)">
+                    <b-col cols="12" md="2">
+                        <b-img class="p-2" :src="article.articleImg" fluid></b-img>
+                    </b-col>
+                    <b-col cols="12" md="10" class="p-2">
+                        <p class="h3">{{article.title}}</p>
+                        <p>{{truncatedText(article.text)}}...</p>
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
+    </b-container>
+</template>
+
+<script>
+    // export default {
+    //     name: 'watchNews',
+
+    //     data: function() {
+    //         return {
+    //             articles: [],
+    //             ROOT_API: process.env.VUE_APP_ROOT_API
+    //         }
+    //     },
+
+    //     methods: {
+    //         truncatedText(text) {
+    //             if (text.length >= 400)
+    //                 return text.substr(0, 400);
+    //             return text;
+    //         },
+
+    //         routeToArticle(articleId) {
+    //             this.$router.push({path: '/watch-news/' + articleId})
+    //         }
+    //     },
+
+    //     computed: {
+            
+    //     },
+
+    //     created() {
+    //         this.$store.dispatch('getWatchNewsArticles').then(articles => {
+    //             this.articles = articles;
+    //         })
+    //     }
+
+    // }
+</script>
+
+<style scoped>
+    
+</style>
+
