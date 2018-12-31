@@ -3,7 +3,7 @@
         <b-row no-gutters class="box-shadow bg-red z-4 py-4" v-if="isServerValidationError"> 
             <p class="h4 center w-100 white">Your session has expired. Please try again.</p>
             <b-col cols="12"></b-col>
-            <button class="btn mx-auto" variant="danger" @click="fuckIt">Refresh Page</button>
+            <b-btn class="btn mx-auto white" variant="secondary" @click="fuckIt">Refresh Page</b-btn>
         </b-row>
        <b-row no-gutters v-else>
             <b-col lg="2" md="3" cols="12" class="border bg-lightgray mx-auto">

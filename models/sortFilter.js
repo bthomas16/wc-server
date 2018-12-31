@@ -88,12 +88,13 @@ const getWatchCollectionByStyle = (id, styleToFilterBy) => {
 }
 
 const getWatchCollectionBySearchTerm = (id, searchTerm) => {
-    return knex('watch')
-        .where('user_id', id).andWhere(function() {
-            this.where('name', 'like', '%' + searchTerm + '%')
-            .orWhere('brand', 'like', '%' + searchTerm + '%')
-            .andWhere('isStillInCollection', true)
-        })
+    return knex.select('*').from('watch')
+    .where('user_id', id)
+    .andWhere('isStillInCollection', true)
+    .andWhere(function() {
+        this.where(knex.raw('LOWER(name) like ?', '%' + searchTerm + '%'))
+        .orWhere(knex.raw('LOWER(brand) like ?', '%' + searchTerm + '%'))
+    })
 }
 
 const getWatchFavorites = (userId, typeOfFavorites) => {

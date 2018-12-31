@@ -109,9 +109,6 @@ const Watch = (function() {
         }   
     }
 
-
-
-
     return { 
         validateWatchFormData,
         saveWatchToCollectionDB,

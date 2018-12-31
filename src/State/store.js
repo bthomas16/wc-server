@@ -44,9 +44,7 @@ const axios = require('axios'),
 
     WELCOME_EMAIL = "WELCOME_EMAIL",
     CONTACT_EMAIL = "CONTACT_EMAIL",
-    FORGOT_PASSWORD_EMAIL = "FORGOT_PASSWORD_EMAIL"
-    
-    
+    FORGOT_PASSWORD_EMAIL = "FORGOT_PASSWORD_EMAIL";
 
 const state = 
 {
@@ -326,6 +324,8 @@ const actions =
     },
 
     loadUserCollection(context) {
+        this.CheckAndSetCookie();
+        
         context.commit(LOADING)
         context.commit(FILTERING, false)
         axios({
@@ -350,6 +350,32 @@ const actions =
             return err       
         })
     },
+
+    CheckAndSetCookie() {
+        var wotd = getCookie("wotd");
+        if (wotd != "" || null) {
+         return true;
+        } else {
+            SetCookie();
+        }
+    },
+
+    SetCookie() {
+        // let date = new Date;
+        // date.setDate(date.getDate() + 1);
+        var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+        document.cookie = "wotd=0;" + expires + "; path=/";
+    },
+
+    GetRandomWatchFromCollectionByArrayIndex() {
+        let max = this.Collection.length;
+        let min = 0;
+        return Math.random() * (max - min) + min;
+    },
+
+    
 
     submitNewWatch(context, watch) {
         console.log('it likes this new shit', localStorage.getItem('watchJwt'))        

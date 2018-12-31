@@ -10,6 +10,7 @@ import store from './State/store.js'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueAnalytics from 'vue-analytics'
+import VueCookies from 'vue-cookies';
 
 const env = process.env.NODE_ENV
 
@@ -29,6 +30,7 @@ Vue.use(VueRouter)
 Vue.use(VueScrollTo)
 Vue.use(BootstrapVue)
 Vue.use(MainCSS)
+Vue.use(VueCookies);
 
 axios.defaults.baseURL = process.env.VUE_APP_ROOT_API
 
