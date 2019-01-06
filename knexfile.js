@@ -5,6 +5,12 @@ module.exports = {
     client: 'postgresql',
     connection: 'postgres://localhost/watch_collection_db'
   },
+
+  // hosted on port 8081, env used to test pwa and full (production) build in local env
+  testing: {
+    client: 'postgresql',
+    connection: 'postgres://localhost/watch_collection_db'
+  },
   
   // Mirror image of production => push to prod from staging
   staging: {

@@ -25,8 +25,6 @@ const port = process.env.PORT || 8081;
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(__dirname + "/dist"));
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
@@ -53,12 +51,15 @@ app.use('/api/email/forgot-password', ForgotPasswordEmailController);
 app.use('/api/static-assets', express.static('public'));
 
 
-app.use(express.static(__dirname + '/dist'))
-// if (process.env.NODE_ENV !== 'development') {
+if (process.env.NODE_ENV !== 'development') {
+  app.use(express.static(__dirname + '/dist'))
+  console.log('should send dist dir next', process.env.NODE_ENV)
+  
   app.get('*', (req,res) => {
+    console.log('using dist dir....', process.env.NODE_ENV)
     res.sendFile((__dirname + '/dist/index.html'));
   })  
-// }
+}
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)

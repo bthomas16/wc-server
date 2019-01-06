@@ -1,25 +1,45 @@
-importScripts("/precache-manifest.5731530b35e126f6d1329434a0a3a24a.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.48bc3ff9c544882c3652dce9e52d6b0c.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 self.__precacheManifest = [].concat(self.__precacheManifest || [])
 workbox.precaching.suppressWarnings()
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
-self.addEventListener('fetch', function (event) {
-  const destination = event.request.destination
-  switch (destination) {
-    case 'image': {
-      event.respondWith(
-        caches.open('watchsoc').then(function (cache) {
-          return cache.match(event.request).then(function (response) {
-            return response || fetch(event.request)
-              .then(function (response) {
-                cache.put(event.request, response.clone())
-                return response
-              })
-          })
-        })
-      )
-    }
-  }
-})
+workbox.routing.registerRoute(
+  new RegExp('/api/static-assets/'),
+  workbox.strategies.cacheFirst({
+    cacheName: 'watch-soc_images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 150,
+        maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+      })
+    ]
+  })
+)
+
+workbox.routing.registerRoute(
+  new RegExp('https://watchcollectionbucket.s3.amazonaws.com/(.*)'),
+  workbox.strategies.cacheFirst({
+    cacheName: 'watch-soc_S3_Bucket',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 150,
+        maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+      })
+    ]
+  })
+)
+
+workbox.routing.registerRoute(
+  new RegExp('/img/icons/'),
+  workbox.strategies.cacheFirst({
+    cacheName: 'watch-soc_images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 150,
+        maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+      })
+    ]
+  })
+)
 
