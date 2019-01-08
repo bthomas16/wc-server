@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../config/db');
+const knex = require('../config/db.js');
 const Promise = require('promise');
 const SortFilter = require('../models/sortFilter.js');
 
@@ -74,6 +74,21 @@ router.get('/favorites/', VerifyToken, async (req, res) => {
         let userId = req.id;
         let option = req.query.option;
         let collection = await SortFilter.getWatchFavorites(userId, option);
+        res.status(200).json({collection})
+    }
+    catch (err)
+    {
+        console.log(err)
+        res.status(500).json({err})
+    } 
+})
+
+router.get('/previous/', VerifyToken, async (req, res) => {
+    try 
+    {
+        let userId = req.id;
+        let option = req.query.option;
+        let collection = await SortFilter.GetPreviousWatches(userId, option);
         res.status(200).json({collection})
     }
     catch (err)

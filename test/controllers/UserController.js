@@ -3,7 +3,7 @@
 const chai = require('chai');
 const expect = require('chai').expect;
 const assert = require('chai').assert;
-const knex = require('../../config/db');
+const knex = require('../../config/db.js');
 
 const bcrypt = require('bcryptjs');
 chai.use(require('chai-http'));
@@ -11,12 +11,9 @@ chai.use(require('chai-http'));
 const app = require('../../app.js');
 
 describe('User Authentication - API', function() {
-    this.timeout(5000);
 
-    after(function() {
-        knex('peeps').where('email', 'jb@g.com').del().then(() => {
-            console.log('Record Deleted')
-        })
+    after(async function() {
+        await knex('peeps').where('email', 'jb@g.com').del()
     });
     
     // LOGIN TESTS

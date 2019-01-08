@@ -1,3 +1,4 @@
-/knexfile
-**/config/
-*.env
+config/*
+config/config.js
+config/db.js
+config/passport.js

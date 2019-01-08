@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
-echo "Changing env to: $1"
+echo "Changing NODE_ENV to: $1"
 echo "********************"
 
-echo "Starting App with nodemon"
+export NODE_ENV=$1
+echo "Now using env:" $NODE_ENV
+
+echo "Ending Script"
 echo "********************"
 
-echo "NODE_ENV=$1" > .env
-nodemon
+export NODE_ENV && node app.js
 
-# use ./run-env.sh 'development || staging || production'
+# use ./run-env.sh 'development' || 'staging' || 'production'
 
 

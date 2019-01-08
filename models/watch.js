@@ -1,19 +1,20 @@
-const knex = require('../config/db');
+const knex = require('../config/db.js');
 
 const Watch = (function() {
 
-    function validateWatchFormData(formData, res) {
-        if(!formData)  res.json({isSuccess: false, message: 'Please send a valid form'});
-        else if (!formData.name)  res.json({isSuccess: false, message: 'Please provide a watch name'});
-        else {
-            return true
+    function validateWatchFormData(formData) {
+        if (!formData.name || formData.name == '')  {
+            return { isSuccess: false, message: 'Please provide a watch name' }
+        } else if (!formData.src.images[0].src || !formData.src.images[0]) {
+            return  { isSuccess: false, message: 'Please provide a watch photo'}
+        } else {
+            return {isSuccess: true, message: 'Form is valid'}
         }
     }
 
     async function saveWatchToCollectionDB(formData, user_id, res) {
         try 
         {
-            console.log('ooooof', formData.src.images)
             await knex('watch').returning('*').insert(
                 {
                     user_id: user_id,
@@ -45,7 +46,6 @@ const Watch = (function() {
                     forTradeValue: formData.forTradeValue,
                     dateAcquired: formData.dateAcquired
                 }).then((watch) => {
-                    console.log('saved!', watch)
                     res.json({
                         isSuccess: true,
                         message: 'Watch saved to Collection',
@@ -66,7 +66,6 @@ const Watch = (function() {
     async function updateWatchById(id, formData, res) {
         try 
         {
-            console.log('hopefully updating watch to db', formData.src.images);
             knex('watch').where('id', id).returning('*').update(
                 {
                     src: { images: formData.src.images },
@@ -95,10 +94,9 @@ const Watch = (function() {
                     forTradeValue: formData.forTradeValue,
                     dateAcquired: formData.dateAcquired
                 }).then((watch) => {
-                    console.log('did it!!!',watch)
                     return res.json({
                         isSuccess: true,
-                        message: 'Watch updated in Collection',
+                        message: 'Watch edited successfully',
                         watch: watch[0]
                     });
                 }).catch((e) => {
@@ -108,12 +106,8 @@ const Watch = (function() {
         catch 
         {
             res.json({isSuccess: false, message: 'Could not save watch to Collection at this time'})
-        }
-        
+        }   
     }
-
-
-
 
     return { 
         validateWatchFormData,

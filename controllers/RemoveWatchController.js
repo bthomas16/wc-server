@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../config/db');
+const knex = require('../config/db.js');
 const Promise = require('promise');
 
 const VerifyToken = require('../middleware/VerifyToken.js');
@@ -32,6 +32,15 @@ router.put('/', VerifyToken, (req, res) => {
      }).then(watch => {
          res.status(201).json({ watch: watch })
      })
+ })
+
+ router.get('/', VerifyToken, async (req, res) => {
+     let id = req.id;
+    knex.select('*')
+     .from('watch')
+     .where('watch.user_id', id)
+     .andWhere('isStillInCollection', false)
+     .fullOuterJoin('watch', 'user_watch_favorited.watch_id', 'watch.id')
  })
 
  module.exports = router;
