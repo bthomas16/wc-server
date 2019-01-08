@@ -1,1 +1,9 @@
 config/*
+config\
+config/config.js
+config/db.js
+config/passport.js
+
+/config/config.js
+/config/db.js
+/config/passport.js
