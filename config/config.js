@@ -1,8 +1,8 @@
 let config = {
     secret: 'secretWord!',
     
-    ACCESS_KEY_ID: "AKIAIOE3JL6PURFEZJOA",
-    SECRET_ACCESS_KEY: "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",
+    ACCESS_KEY_ID: "AKIAICZUNWSLKSF2PMMQ",
+    SECRET_ACCESS_KEY: "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",
     BUCKET: "watchcollectionbucket",
     REGION: 'us-east-1'
 }
