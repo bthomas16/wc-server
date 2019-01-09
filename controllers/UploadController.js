@@ -6,8 +6,7 @@ bodyParser = require('body-parser'),
 busboy = require('connect-busboy'),
 busboyBodyParser = require('busboy-body-parser'),
 Busboy = require('busboy'),
-VerifyToken = require('../middleware/VerifyToken'),
-config = require('../config.js');
+VerifyToken = require('../middleware/VerifyToken');
 
 router.use(busboy())
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -15,10 +14,10 @@ router.use(bodyParser.json());
 router.use(busboyBodyParser());
 
 const s3bucket = new AWS.S3({
-    accessKeyId: config.ACCESS_KEY_ID,
-    secretAccessKey: config.SECRET_ACCESS_KEY,
-    Bucket: config.BUCKET,
-    region: config.REGION
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    Bucket: process.env.BUCKET,
+    region: process.env.REGION
 });
 
 function uploadWatchImagesToS3(images, res) 

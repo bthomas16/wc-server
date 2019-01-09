@@ -5,7 +5,6 @@ const expect = require('chai').expect;
 const assert = require('chai').assert;
 const knex = require('../../config/db.js');
 const jwt = require('jsonwebtoken');
-const config = require('../config.js');
 
 chai.use(require('chai-http'));
 
@@ -17,7 +16,7 @@ describe('User Watches - API', function() {
 
     before(function() {
         // would normally lookup user by ID to get user.id
-        token = jwt.sign({ id: 987654321 }, config.secret, {
+        token = jwt.sign({ id: 987654321 }, process.env.secret, {
             expiresIn: 86400 // expires in 24 hours
           })
     });

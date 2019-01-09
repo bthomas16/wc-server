@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user')();
 const Promise = require('promise');
 const jwt = require('jsonwebtoken');
-const config = require('../config.js');
 
 
 const VerifyToken = require('../middleware/VerifyToken.js');
@@ -75,7 +74,7 @@ router.get('/validate-jwt/', (req, res) =>
     res.json({isSuccess: false, message: 'Pleasge login to access your profile'});
     return;
   }
-  jwt.verify(token, config.secret, function(err, decoded) { 
+  jwt.verify(token, process.env.secret, function(err, decoded) { 
   if (err) {
     console.log('invalid JWTFJG', err, token)
     res.json({ isSuccess: false, message: 'Your session has expired - Please Logout and Login again.'});

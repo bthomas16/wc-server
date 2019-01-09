@@ -2,7 +2,6 @@
 const bcrypt = require('bcryptjs');
 const knex = require('../config/db');
 const jwt = require('jsonwebtoken');
-const config = require('../config.js');
 
 const User = module.exports = function () {
 // REGISTER REGISTER REGISTER REGISTER
@@ -60,7 +59,7 @@ function SaveUserToDB(formData, hashPassword, res)
         password: hashPassword
     }).then((id) => {
         console.log('user was saved here is the ID', id[0])
-        let token = jwt.sign({ id: id[0] }, config.secret, {
+        let token = jwt.sign({ id: id[0] }, process.env.secret, {
             expiresIn: 86400 // expires in 24 hours
           })
           let user = formData;
@@ -97,7 +96,7 @@ const RetrieveUser = async function(formData)
 async function SetJwtToken(user) 
 {
     if(!user) return false;
-    let token = await jwt.sign({ id: user.id }, config.secret, {
+    let token = await jwt.sign({ id: user.id }, process.env.secret, {
         expiresIn: 86400 // expires in 24 hours
       })
       return token     
