@@ -11,7 +11,7 @@
 
 # Setting Heroku ENV Variables
 
-1. heroku config:set ACCESS_KEY_ID='AKIAI5BWXBSDTVNBBYNA' SECRET_ACCESS_KEY='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' BUCKET='watchcollectionbucket' REGION='us-east-1' SECRET='secretWord!' GoogleAuth_user='watchsoc@gmail.com' GoogleAuth_pass='watchesAreLife69'
+1. heroku config:set ACCESS_KEY_ID='' SECRET_ACCESS_KEY='' BUCKET='watchcollectionbucket' REGION='us-east-1' SECRET='' GoogleAuth_user='' GoogleAuth_pass=''
 
 ### SAMPLE .env file will contain the following:
 
