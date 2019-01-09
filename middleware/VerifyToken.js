@@ -1,5 +1,5 @@
 var jwt = require('jsonwebtoken');
-var config = require('../config/config');
+var config = require('../config.js');
 
 function verifyToken(req, res, next) 
 {

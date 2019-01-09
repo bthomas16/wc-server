@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 const assert = require('chai').assert;
 const knex = require('../../config/db.js');
 const jwt = require('jsonwebtoken');
-const config = require('../../config/config');
+const config = require('../config.js');
 
 chai.use(require('chai-http'));
 

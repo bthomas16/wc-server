@@ -7,7 +7,7 @@ busboy = require('connect-busboy'),
 busboyBodyParser = require('busboy-body-parser'),
 Busboy = require('busboy'),
 VerifyToken = require('../middleware/VerifyToken'),
-config = require('../config/config');
+config = require('../config.js');
 
 router.use(busboy())
 router.use(bodyParser.urlencoded({ extended: true }));

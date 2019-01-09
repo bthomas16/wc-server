@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 const knex = require('../config/db');
 const jwt = require('jsonwebtoken');
-const config = require('../config/config');
+const config = require('../config.js');
 
 const User = module.exports = function () {
 // REGISTER REGISTER REGISTER REGISTER

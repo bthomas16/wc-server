@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user')();
 const Promise = require('promise');
 const jwt = require('jsonwebtoken');
-const config = require('../config/config.js');
+const config = require('../config.js');
 
 
 const VerifyToken = require('../middleware/VerifyToken.js');
