@@ -4,20 +4,12 @@ exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('watch').del().then(function() {
     
-    let baseUrl = "http://localhost:8081"
-    let env = process.env.NODE_ENV
-    if (env == 'development' || 'testing') {
-      baseUrl = 'http://localhost:8081'
-    } else if (env == 'staging') {
-      baseUrl = 'https://www.staging-watch-collection.herokuapp.com'      
-    } else if(env == 'production') {
-      baseUrl = "https://www.watchsoc.com"
-    }
+    
    
     let watches = [{
       user_id: 987654321,
 
-      src: { images: [{src: baseUrl + '/api/static-assets/zelos-featured.jpg', order: 0}, {src: baseUrl + '/api/static-assets/tcm-featured.jpg', order: 1}, {src: baseUrl + '/api/static-assets/tcm-white-featured.jpg', order: 2}] },
+      src: { images: [{src: '/api/static-assets/zelos-featured.jpg', order: 0}, {src: '/api/static-assets/tcm-featured.jpg', order: 1}, {src: '/api/static-assets/tcm-white-featured.jpg', order: 2}] },
       condition: 8,
       brand: "Bromega",
       name: "Chillario",
@@ -47,7 +39,7 @@ exports.seed = function(knex, Promise) {
       {
       user_id: 987654321,
 
-      src: { images: [{src: baseUrl + '/api/static-assets/ch-ward-featured.jpg', order: 0}, {src: baseUrl + '/api/static-assets/aragon-featured.jpg', order: 1}, {src: baseUrl + '/api/static-assets/fortuna-featured.jpg', order: 2}] },      
+      src: { images: [{src: '/api/static-assets/ch-ward-featured.jpg', order: 0}, {src: '/api/static-assets/aragon-featured.jpg', order: 1}, {src: '/api/static-assets/fortuna-featured.jpg', order: 2}] },      
       condition: 8,
       brand: "Bromacho",
       name: "Trillario",
@@ -77,7 +69,7 @@ exports.seed = function(knex, Promise) {
       {
         user_id: 987654321,
   
-        src: { images: [{src: baseUrl + '/api/static-assets/zelos-featured.jpg', order: 0}, {src: baseUrl + '/api/static-assets/tcm-featured.jpg', order: 1}, {src: baseUrl + '/api/static-assets/tcm-white-featured.jpg', order: 2}] },
+        src: { images: [{src: '/api/static-assets/zelos-featured.jpg', order: 0}, {src: '/api/static-assets/tcm-featured.jpg', order: 1}, {src: '/api/static-assets/tcm-white-featured.jpg', order: 2}] },
         condition: 8,
         brand: "Brillchancho",
         name: "Chillario",
@@ -107,7 +99,7 @@ exports.seed = function(knex, Promise) {
           {
           user_id: 987654321,
     
-          src: { images: [{src: baseUrl + '/api/static-assets/ch-ward-featured.jpg', order: 0}, {src: baseUrl + '/api/static-assets/aragon-featured.jpg', order: 1}, {src: baseUrl + '/api/static-assets/fortuna-featured.jpg', order: 2}] },      
+          src: { images: [{src: '/api/static-assets/ch-ward-featured.jpg', order: 0}, {src: '/api/static-assets/aragon-featured.jpg', order: 1}, {src: '/api/static-assets/fortuna-featured.jpg', order: 2}] },      
           condition: 8,
           brand: "Broschmega",
           name: "Broschmega",
@@ -137,7 +129,7 @@ exports.seed = function(knex, Promise) {
           {
             user_id: 987654321,
       
-            src: { images: [{src: baseUrl + '/api/static-assets/zelos-featured.jpg', order: 0}, {src: baseUrl + '/api/static-assets/tcm-featured.jpg', order: 1}, {src: baseUrl + '/api/static-assets/tcm-white-featured.jpg', order: 2}] },
+            src: { images: [{src: '/api/static-assets/zelos-featured.jpg', order: 0}, {src: '/api/static-assets/tcm-featured.jpg', order: 1}, {src: '/api/static-assets/tcm-white-featured.jpg', order: 2}] },
             condition: 8,
             brand: "Hotega",
             name: "BrillBario",
@@ -167,7 +159,7 @@ exports.seed = function(knex, Promise) {
             {
             user_id: 987654321,
       
-            src: { images: [{src: baseUrl + '/api/static-assets/ch-ward-featured.jpg', order: 0}, {src: baseUrl + '/api/static-assets/aragon-featured.jpg', order: 1}, {src: baseUrl + '/api/static-assets/fortuna-featured.jpg', order: 2}] },      
+            src: { images: [{src: '/api/static-assets/ch-ward-featured.jpg', order: 0}, {src: '/api/static-assets/aragon-featured.jpg', order: 1}, {src: '/api/static-assets/fortuna-featured.jpg', order: 2}] },      
             condition: 8,
             brand: "Hancho",
             name: "Schmoschmancho",
