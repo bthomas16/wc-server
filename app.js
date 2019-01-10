@@ -53,10 +53,8 @@ app.use('/api/static-assets', express.static('public'));
 
 if (process.env.NODE_ENV !== 'development') {
   app.use(express.static(__dirname + '/dist'))
-  console.log('should send dist dir next', process.env.NODE_ENV)
   
   app.get('*', (req,res) => {
-    console.log('using dist dir....', process.env.NODE_ENV)
     res.sendFile((__dirname + '/dist/index.html'));
   })  
 }

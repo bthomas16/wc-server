@@ -25,7 +25,6 @@ function uploadWatchImagesToS3(images, res)
     s3bucket.createBucket(function () {
         let uploadedImages = [];
 
-        console.log('should upload these bois', images)
         images.forEach(image => {
             
             let params = {
@@ -47,7 +46,6 @@ function uploadWatchImagesToS3(images, res)
                         image.src = image.Location;
                         image.order = index;
                     });
-        console.log('return uploaded dudes', uploadedImages)
                     
                 res.status(201).json({uploadedImages})
                 }; 
@@ -62,7 +60,6 @@ router.post('/watch-images', VerifyToken, function (req, res, next) {
     busboy.on('finish', function() {
         let files = req.files;
         let imagesArr = Object.values(files); //turn object of objects into array of objects
-        console.log('upload this images arr', imagesArr)
         uploadWatchImagesToS3(imagesArr, res);
    });
     req.pipe(busboy);

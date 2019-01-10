@@ -12,8 +12,6 @@ router.post('/', (req, res) => {
             pass: process.env.GoogleAuth_pass
         }
     });
-    
-    console.log('get it to', req.body)
 
     let mailOptions = {
         from: '"Watch SOC" <watchsoc_info@watchsoc.com>', // sender address
@@ -26,12 +24,9 @@ router.post('/', (req, res) => {
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
-        console.log('hello, sir')
         if (error) {
-            console.log('oops, err', error)
             return res.json({isSuccess: false, message: 'Unable to send message'});
         }
-            console.log('Sent the thing', info);
             return res.json({isSuccess: true, message: 'Message sent successfully'});
         });
     });
