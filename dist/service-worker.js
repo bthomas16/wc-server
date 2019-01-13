@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.4b2efd0fcd72ac2c89cc6ed4b9b3ae51.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.3fa2a5581464d6085c69f4c8b5c65c53.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 self.__precacheManifest = [].concat(self.__precacheManifest || [])
 workbox.precaching.suppressWarnings()
@@ -31,7 +31,7 @@ workbox.routing.registerRoute(
 )
 
 workbox.routing.registerRoute(
-  new RegExp('/img/icons/'),
+  new RegExp('/img/'),
   workbox.strategies.cacheFirst({
     cacheName: 'watch-soc_images',
     plugins: [
@@ -44,6 +44,6 @@ workbox.routing.registerRoute(
 )
 
 workbox.routing.setDefaultHandler(
-  workbox.strategies.cacheFirst()
+  workbox.strategies.networkFirst()
 );  
 

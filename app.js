@@ -53,15 +53,19 @@ app.use('/api/static-assets', express.static('public'));
 app.use(detector.middleware()) 
 
 
-if (process.env.NODE_ENV !== 'development') {
+if (process.env.NODE_ENV !== 'development') {  
+  app.use(express.static(__dirname + '/dist'))
   
+  console.log('Using this env:', process.env.NODE_ENV)
   app.get('*', (req, res) => {
     if (req.isSpider()) {
+      console.log('sending the wrong ish!')
+      
       res.sendFile((__dirname + '/spiderIndex.html'));
     } else {
-      app.use(express.static(__dirname + '/dist'))
+      console.log('sending the right ish!')
       res.sendFile((__dirname + '/dist/index.html'));
-  }
+    }
   })  
 }
 
