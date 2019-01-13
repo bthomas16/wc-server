@@ -44,6 +44,6 @@ workbox.routing.registerRoute(
 )
 
 workbox.routing.setDefaultHandler(
-  workbox.strategies.staleWhileRevalidate()
+  workbox.strategies.cacheFirst()
 );  
 

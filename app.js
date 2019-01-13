@@ -20,7 +20,7 @@ const WelcomeEmailController = require('./controllers/Emails/WelcomeEmail');
 const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPassword');
 const serveStatic = require("serve-static");
 const path = require('path');
-const dectector = require('spider-detector');
+const detector = require('spider-detector');
 const port = process.env.PORT || 8081;
 
 app.use(passport.initialize());
@@ -55,7 +55,7 @@ app.use(detector.middleware())
 
 if (process.env.NODE_ENV !== 'development') {
   
-  app.get('*', (req,res) => {
+  app.get('*', (req, res) => {
     if (req.isSpider()) {
       res.sendFile((__dirname + '/spiderIndex.html'));
     } else {
