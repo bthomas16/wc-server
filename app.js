@@ -50,7 +50,7 @@ app.use('/api/email/welcome', WelcomeEmailController);
 app.use('/api/email/forgot-password', ForgotPasswordEmailController);
 
 app.use('/api/static-assets', express.static('public'));
-app.use(detector.middleware())
+app.use(detector.middleware()) 
 
 
 if (process.env.NODE_ENV !== 'development') {
