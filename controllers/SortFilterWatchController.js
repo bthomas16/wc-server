@@ -12,7 +12,6 @@ router.get('/condition/', VerifyToken, async (req, res) => {
         let id = req.id;        
         let conditionToFilterBy = +req.query.option;
         let collection = await SortFilter.getWatchCollectionByCondition(id, conditionToFilterBy);
-        console.log(collection)
         res.status(200).json({collection})
     }
     catch (err)
@@ -57,7 +56,6 @@ router.get('/search/', VerifyToken, async (req, res) => {
     {
         let id = req.id;        
         let searchTerm = req.query.searchTerm;
-        console.log('get it', searchTerm)
         let collection = await SortFilter.getWatchCollectionBySearchTerm(id, searchTerm);
         res.status(200).json({collection})
     }
