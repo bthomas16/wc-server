@@ -99,7 +99,6 @@ router.put('/edit', VerifyToken, (req, res) => {
   try {
     let formData = req.body;
     let userId = req.id;   
-    console.log('here')
     
     // user is trying to update password
     if (formData.newPassword) {
@@ -125,7 +124,7 @@ router.put('/edit', VerifyToken, (req, res) => {
           }
         })
       }).catch(err => {
-        console.log('foop', err);
+        console.log('err', err);
         res.json({isSuccess: false, message: 'User failed to update', err}); 
         return;
       })

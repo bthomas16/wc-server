@@ -15,7 +15,6 @@ const s3bucket = new AWS.S3({
 const uploadFile = (filename) => {
   fs.readFile(fileName, (err, data) => {
      if (err) throw err;
-     console.log(fileName, 'filenamen beeee')
      const params = {
          Bucket: 'watchcollectionbucket', // pass your bucket name
          Key: 'ididthisish.png', // file will be saved as testBucket/contacts.csv

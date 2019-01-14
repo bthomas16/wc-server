@@ -31,7 +31,6 @@ router.put('/', VerifyToken, async (req, res) => {
 router.get('/', VerifyToken, async (req, res) => {
     try
     {   
-        console.log('got req.id', req.id)
         return await knex('watch')
             .orderBy('order', 'asc')
             .where('user_id', req.id)
@@ -75,17 +74,14 @@ router.get('/number-fsot', VerifyToken, async (req, res) => {
 router.get('/removed', VerifyToken, (req, res) => {
     // try
     // {   
-        console.log('fookin')
         let id = req.query.id; // watch id
-        console.log('pookin', id)
         
         return knex.select('*')
         .from('user_watch_removed')
         .where('user_watch_removed.user_id', req.id)
         .fullOuterJoin('watch', 'user_watch_removed.watch_id', 'watch.id')
         .then(collection => { 
-            collection.forEach(watch => {
-            console.log('I got your fucking shit here, bitch', collection)                
+            collection.forEach(watch => {             
             res.status(200).json({collection: collection[0]});
         })
     })
