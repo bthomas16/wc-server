@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "92498d1e4d4cd5327b596c808c1af8ed",
+    "revision": "1493e3b410e701f931742d2ed92a5ceb",
     "url": "/index.html"
   },
   {
