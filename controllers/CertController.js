@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    console.log('we doing it')
     res.send('sL1HQUFvoLJ5rhkism-QUy007RCfP-bog10ycWQrmoE.zVzQHHBtykEEHnmY6itil7g0RYgjhx9E-WRa9LlQnvo');
 })
 

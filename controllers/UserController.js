@@ -25,7 +25,6 @@ router.post('/register', async (req, res) =>
 router.post('/login', async (req, res) => 
 {
   try {
-
       let formData = req.body;
       let validForm = User.ValidLoginFormData(formData);
       if (!validForm) {
@@ -69,23 +68,25 @@ router.post('/login', async (req, res) =>
 router.get('/validate-jwt/', (req, res) => 
 {
   let token = req.query.jwt;
+  console.log('got ya token', token)
   if (!token) {
     console.log('no token', token)
     res.json({isSuccess: false, message: 'Pleasge login to access your profile'});
-    return;
-  }
-  jwt.verify(token, process.env.secret, function(err, decoded) { 
-  if (err) {
-    console.log('invalid JWTFJG', err, token)
-    res.json({ isSuccess: false, message: 'Your session has expired - Please Logout and Login again.'});
-    return;
   }
   else {
-    console.log('VALID JWT', token)
-    res.status(200).json({isSuccess: true, message: 'User is authorized'})
-    return;
-  }
-  })
+    jwt.verify(token, process.env.secret, function(err, decoded) { 
+      if (err) {
+        console.log('Invalid JWT, please try again')
+        res.json({ isSuccess: false, message: 'Your session has expired - Please Logout and Login again.'});
+        return;
+      }
+      else {
+        console.log('VALID JWT', token)
+        res.status(200).json({isSuccess: true, message: 'User is authorized'})
+        return;
+      }
+    })
+  } 
 })
 
 
