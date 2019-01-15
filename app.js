@@ -47,7 +47,7 @@ app.use('/api/upload', Upload);
 app.use('/api/email/contact', ContactEmailController);
 app.use('/api/email/welcome', WelcomeEmailController);
 app.use('/api/email/forgot-password', ForgotPasswordEmailController);
-app.use('/.well-known/acme-challenge/PqiyfchSqGdDoNO4-QmE4ojUo7aWr-BAmu43rx23Lx8', CertController)
+app.use('/.well-known/acme-challenge/FH9Ji48jrYkg4B8P5jiGSOPtiXVTa5ACZxckwBMa2pQ', CertController)
 
 app.use('/api/static-assets', express.static('public'));
 
@@ -58,8 +58,6 @@ if (process.env.NODE_ENV !== 'development') {
     res.sendFile((__dirname + '/dist/index.html'));
   })  
 }
-
-
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)
