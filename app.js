@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-
 const passport = require('passport');
 
 const app = express();
@@ -48,13 +47,9 @@ app.use('/api/upload', Upload);
 app.use('/api/email/contact', ContactEmailController);
 app.use('/api/email/welcome', WelcomeEmailController);
 app.use('/api/email/forgot-password', ForgotPasswordEmailController);
-app.use('/.well-known/acme-challenge/sL1HQUFvoLJ5rhkism-QUy007RCfP-bog10ycWQrmoE', CertController)
+app.use('/.well-known/acme-challenge/PqiyfchSqGdDoNO4-QmE4ojUo7aWr-BAmu43rx23Lx8', CertController)
 
 app.use('/api/static-assets', express.static('public'));
-
-app.get('/.well-known/acme-challenge/xBTXgdRdW_CV0znXStkYlBEn17aHZd8eB6tDnqNGg74', (req, res)=>{
-  res.send('xBTXgdRdW_CV0znXStkYlBEn17aHZd8eB6tDnqNGg74.zVzQHHBtykEEHnmY6itil7g0RYgjhx9E-WRa9LlQnvo');
- }) 
 
 if (process.env.NODE_ENV !== 'development') {  
   app.use(express.static(__dirname + '/dist'))
