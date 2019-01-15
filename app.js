@@ -50,6 +50,9 @@ app.use('/api/email/forgot-password', ForgotPasswordEmailController);
 
 app.use('/api/static-assets', express.static('public'));
 
+app.get('/.well-known/acme-challenge/xBTXgdRdW_CV0znXStkYlBEn17aHZd8eB6tDnqNGg74', (req, res)=>{
+  res.send('xBTXgdRdW_CV0znXStkYlBEn17aHZd8eB6tDnqNGg74.zVzQHHBtykEEHnmY6itil7g0RYgjhx9E-WRa9LlQnvo');
+ }) 
 
 if (process.env.NODE_ENV !== 'development') {  
   app.use(express.static(__dirname + '/dist'))
@@ -59,8 +62,10 @@ if (process.env.NODE_ENV !== 'development') {
   })  
 }
 
+
+
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)
 })
 
-module.exports = app;
+module.exports = app; 
