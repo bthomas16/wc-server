@@ -14,6 +14,7 @@ const SortFilterWatchController = require('./controllers/SortFilterWatchControll
 const DiscoverWatchesInformation = require('./controllers/DiscoverWatchesInformationController');
 const WatchNewsController = require('./controllers/WatchNewsController');
 const WatchController = require('./controllers/WatchController');
+const CertController = require('./controllers/CertController.js')
 const Upload = require('./controllers/UploadController');
 const ContactEmailController = require('./controllers/Emails/ContactUs');
 const WelcomeEmailController = require('./controllers/Emails/WelcomeEmail');
@@ -47,6 +48,7 @@ app.use('/api/upload', Upload);
 app.use('/api/email/contact', ContactEmailController);
 app.use('/api/email/welcome', WelcomeEmailController);
 app.use('/api/email/forgot-password', ForgotPasswordEmailController);
+app.use('/.well-known/acme-challenge/sL1HQUFvoLJ5rhkism-QUy007RCfP-bog10ycWQrmoE', CertController)
 
 app.use('/api/static-assets', express.static('public'));
 
