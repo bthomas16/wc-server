@@ -4,7 +4,7 @@
   "description": "Manage your current, past, and future Watch SOC",
   "icons": [
     {
-      "src": "/img/icons/watch-icon-192.png",
+      "src": "/img/icons/watch-icon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
