@@ -1,19 +1,27 @@
 self.__precacheManifest = [
   {
     "revision": "24a0fd952f321f4a1aff",
-    "url": "/js/chunk-vendors~6549ae0f.5fb028f6.js"
+    "url": "/css/chunk-vendors~6549ae0f.4b7e327a.css"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/robots.txt"
   },
   {
-    "revision": "824cb30fd8b5353969a8",
-    "url": "/js/chunk-vendors~6e0856a2.edc22af2.js"
+    "revision": "24a0fd952f321f4a1aff",
+    "url": "/js/chunk-vendors~6549ae0f.5fb028f6.js"
   },
   {
-    "revision": "46634ae72f57340af419",
-    "url": "/css/app~d0ae3f07.05890504.css"
+    "revision": "1f143ab7e704005a2713",
+    "url": "/css/app~d0ae3f07.309d002e.css"
+  },
+  {
+    "revision": "668e595e2b76aea79af7",
+    "url": "/css/app~f71cff67.69a31363.css"
+  },
+  {
+    "revision": "668e595e2b76aea79af7",
+    "url": "/js/app~f71cff67.d98e7924.js"
   },
   {
     "revision": "e7df5dfeb7d4ffd390ac",
@@ -36,16 +44,16 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~5c956a7a.10708298.js"
   },
   {
-    "revision": "24a0fd952f321f4a1aff",
-    "url": "/css/chunk-vendors~6549ae0f.4b7e327a.css"
+    "revision": "ee64f9c0dc053efaedea",
+    "url": "/js/DiscoverWatches~9fa10dbc.1eea8f03.js"
   },
   {
-    "revision": "ed6003be0d2106912a6f",
-    "url": "/js/DiscoverWatches~9fa10dbc.03b88c1d.js"
+    "revision": "1f143ab7e704005a2713",
+    "url": "/js/app~d0ae3f07.6a03cf72.js"
   },
   {
-    "revision": "46634ae72f57340af419",
-    "url": "/js/app~d0ae3f07.cde2095b.js"
+    "revision": "824cb30fd8b5353969a8",
+    "url": "/js/chunk-vendors~6e0856a2.edc22af2.js"
   },
   {
     "revision": "d7f78f7259e1319cb01e",
@@ -76,11 +84,11 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "8b34a7a3810a2768dafa11b16dbb45d2",
+    "revision": "a55fb22a73483b495741bcd09380991b",
     "url": "/index.html"
   },
   {
-    "revision": "ed6003be0d2106912a6f",
-    "url": "/css/DiscoverWatches~9fa10dbc.07f54070.css"
+    "revision": "ee64f9c0dc053efaedea",
+    "url": "/css/DiscoverWatches~9fa10dbc.b8d5e3c0.css"
   }
 ];
