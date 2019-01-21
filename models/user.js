@@ -85,8 +85,8 @@ const RetrieveUser = async function(formData)
         .select()
         .where('email', tempEmail)
         .first()
-        .then(async (user) => {
-            return await user;
+        .then((user) => {
+            return user;
         }).catch(err => {
             console.log('no bueno', err)
             return 'err';  

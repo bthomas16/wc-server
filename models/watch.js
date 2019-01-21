@@ -109,10 +109,20 @@ const Watch = (function() {
         }   
     }
 
+    async function DbGetWatchByIdJoinUser(watchId) {
+        return knex.select('*')
+            .from('watch')
+            .where('watch.id', watchId)
+            .fullOuterJoin('peeps', 'watch.user_id', 'peeps.id').then(async (watch) => {
+                return await watch
+            })
+    }
+
     return { 
         validateWatchFormData,
         saveWatchToCollectionDB,
-        updateWatchById
+        updateWatchById,
+        DbGetWatchByIdJoinUser
     }
 })()
 

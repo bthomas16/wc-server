@@ -18,6 +18,7 @@ const Upload = require('./controllers/UploadController');
 const ContactEmailController = require('./controllers/Emails/ContactUs');
 const WelcomeEmailController = require('./controllers/Emails/WelcomeEmail');
 const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPassword');
+const WatchShareController = require('./controllers/WatchShareController')
 const serveStatic = require("serve-static");
 const path = require('path');
 const port = process.env.PORT || 8081;
@@ -47,6 +48,10 @@ app.use('/api/upload', Upload);
 app.use('/api/email/contact', ContactEmailController);
 app.use('/api/email/welcome', WelcomeEmailController);
 app.use('/api/email/forgot-password', ForgotPasswordEmailController);
+app.use('/api/watch-share', WatchShareController);
+
+
+
 app.use('/.well-known/acme-challenge/FH9Ji48jrYkg4B8P5jiGSOPtiXVTa5ACZxckwBMa2pQ', CertController)
 
 app.use('/api/static-assets', express.static('public'));

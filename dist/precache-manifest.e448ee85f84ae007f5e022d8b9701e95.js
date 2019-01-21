@@ -12,16 +12,16 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~6549ae0f.5fb028f6.js"
   },
   {
-    "revision": "1f143ab7e704005a2713",
+    "revision": "6bb87ad98fd500dce905",
     "url": "/css/app~d0ae3f07.309d002e.css"
   },
   {
-    "revision": "18bae6f48bef2a16de32",
-    "url": "/css/app~f71cff67.de6205e0.css"
+    "revision": "ada758189a3202ebef7e",
+    "url": "/css/app~f71cff67.b2cd55ec.css"
   },
   {
-    "revision": "18bae6f48bef2a16de32",
-    "url": "/js/app~f71cff67.d1dc78fa.js"
+    "revision": "ada758189a3202ebef7e",
+    "url": "/js/app~f71cff67.9fbf32b1.js"
   },
   {
     "revision": "e7df5dfeb7d4ffd390ac",
@@ -44,12 +44,12 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~5c956a7a.10708298.js"
   },
   {
-    "revision": "ee64f9c0dc053efaedea",
-    "url": "/js/DiscoverWatches~9fa10dbc.1eea8f03.js"
+    "revision": "bec80484dec40d7011fd",
+    "url": "/js/DiscoverWatches~31ecd969.b3f9e0b1.js"
   },
   {
-    "revision": "1f143ab7e704005a2713",
-    "url": "/js/app~d0ae3f07.6a03cf72.js"
+    "revision": "6bb87ad98fd500dce905",
+    "url": "/js/app~d0ae3f07.0feb2ef6.js"
   },
   {
     "revision": "824cb30fd8b5353969a8",
@@ -84,11 +84,11 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "8757e2decf97d2c79b541db2b8a45a09",
+    "revision": "d50b208c18151c2d151e262203c202f8",
     "url": "/index.html"
   },
   {
-    "revision": "ee64f9c0dc053efaedea",
-    "url": "/css/DiscoverWatches~9fa10dbc.b8d5e3c0.css"
+    "revision": "bec80484dec40d7011fd",
+    "url": "/css/DiscoverWatches~31ecd969.8c7081f8.css"
   }
 ];
