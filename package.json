@@ -28,6 +28,7 @@
     "pg": "^7.7.1",
     "promise": "^8.0.1",
     "serve-static": "^1.13.2",
+    "ssl-express-www": "^3.0.3",
     "zone.js": "0.8.5"
   },
   "devDependencies": {

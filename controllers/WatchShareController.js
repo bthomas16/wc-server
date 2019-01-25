@@ -3,7 +3,6 @@ const router = express.Router();
 const knex = require('../config/db.js');
 const Watch = require('../models/watch')
 
-
 router.get('/by-watchid', async (req, res) => {
     let watchId = req.query.watchId
     let watchArr = await Watch.DbGetWatchByIdJoinUser(watchId)
