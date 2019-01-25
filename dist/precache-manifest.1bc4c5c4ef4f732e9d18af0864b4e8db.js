@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/js/app~d0ae3f07.6f34113b.js"
   },
   {
-    "revision": "ad4f4b8ec3d92bca30de",
-    "url": "/js/app~f71cff67.a6548a87.js"
+    "revision": "6754b60d3b3db86a9480",
+    "url": "/js/app~f71cff67.4d9b2d80.js"
   },
   {
     "revision": "e7df5dfeb7d4ffd390ac",
@@ -44,8 +44,8 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~5c956a7a.10708298.js"
   },
   {
-    "revision": "f997b8cb8ec295c30672",
-    "url": "/js/chunk-vendors~f5586520.19943b5b.js"
+    "revision": "ca3383328f9ac6f1960b",
+    "url": "/js/chunk-vendors~f5586520.60072589.js"
   },
   {
     "revision": "574d4a8c6b8267f74d81",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/js/DiscoverWatches~31ecd969.7b8baf51.js"
   },
   {
-    "revision": "77d1252db82611f293bb48b4369cbfc3",
+    "revision": "268652a0b0c8798ef2bb701570cf4a91",
     "url": "/index.html"
   },
   {
@@ -88,8 +88,8 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~3c826496.ac0ebac2.css"
   },
   {
-    "revision": "ad4f4b8ec3d92bca30de",
-    "url": "/css/app~f71cff67.f3f506a7.css"
+    "revision": "6754b60d3b3db86a9480",
+    "url": "/css/app~f71cff67.52819e6b.css"
   },
   {
     "revision": "79d27be2f24b736714ed",
