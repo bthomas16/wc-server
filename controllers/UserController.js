@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user')();
 const Promise = require('promise');
 const jwt = require('jsonwebtoken');
-const config = require('../config/config.js');
 
 
 const VerifyToken = require('../middleware/VerifyToken.js');
@@ -26,7 +25,6 @@ router.post('/register', async (req, res) =>
 router.post('/login', async (req, res) => 
 {
   try {
-
       let formData = req.body;
       let validForm = User.ValidLoginFormData(formData);
       if (!validForm) {
@@ -70,23 +68,25 @@ router.post('/login', async (req, res) =>
 router.get('/validate-jwt/', (req, res) => 
 {
   let token = req.query.jwt;
+  console.log('got ya token', token)
   if (!token) {
     console.log('no token', token)
     res.json({isSuccess: false, message: 'Pleasge login to access your profile'});
-    return;
-  }
-  jwt.verify(token, config.secret, function(err, decoded) { 
-  if (err) {
-    console.log('invalid JWTFJG', err, token)
-    res.json({ isSuccess: false, message: 'Your session has expired - Please Logout and Login again.'});
-    return;
   }
   else {
-    console.log('VALID JWT', token)
-    res.status(200).json({isSuccess: true, message: 'User is authorized'})
-    return;
-  }
-  })
+    jwt.verify(token, process.env.secret, function(err, decoded) { 
+      if (err) {
+        console.log('Invalid JWT, please try again')
+        res.json({ isSuccess: false, message: 'Your session has expired - Please Logout and Login again.'});
+        return;
+      }
+      else {
+        console.log('VALID JWT', token)
+        res.status(200).json({isSuccess: true, message: 'User is authorized'})
+        return;
+      }
+    })
+  } 
 })
 
 
@@ -100,7 +100,6 @@ router.put('/edit', VerifyToken, (req, res) => {
   try {
     let formData = req.body;
     let userId = req.id;   
-    console.log('here')
     
     // user is trying to update password
     if (formData.newPassword) {
@@ -126,7 +125,7 @@ router.put('/edit', VerifyToken, (req, res) => {
           }
         })
       }).catch(err => {
-        console.log('foop', err);
+        console.log('err', err);
         res.json({isSuccess: false, message: 'User failed to update', err}); 
         return;
       })

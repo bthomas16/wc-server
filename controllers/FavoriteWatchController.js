@@ -30,7 +30,6 @@ router.get('/heart-icons', VerifyToken, (req, res) => {
 })
 
 router.post('/', VerifyToken, async (req, res) => {
-    console.log('sko')
     let watchId = +req.query.watchId; // watch to favorite id
     let userId = req.id;  // user adding watch to favorites
     let isFavoriteRowExist = await getFavoriteRowExist(userId, watchId) // has this watch been favorited before?
@@ -47,7 +46,6 @@ function toggleWatchfavorite(favoriteWatch, res, userId) {
     knex('user_watch_favorited').where('id', favoriteWatch.id).returning('*').update({
         isCurrentFavorite: !favoriteWatch.isCurrentFavorite
     }).then( async (favorites) => {
-        console.log('toggled', favorites)
         await getFavoriteWatches(userId, res);
     }).catch(err => {
         res.status(500).send(err)
@@ -65,7 +63,6 @@ function getFavoriteWatches(userId, res) {
 function getFavoriteRowExist(userId, watchId) {
     return knex('user_watch_favorited').where('user_id', userId).andWhere('watch_id', watchId).first()
     .then(watch => {
-        console.log('check this favorite status',  watch)
         return watch;
     }).catch(() => {
         return false

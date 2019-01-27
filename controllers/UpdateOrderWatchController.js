@@ -7,7 +7,6 @@ const WatchModel = require('../models/watch.js');
 const VerifyToken = require('../middleware/VerifyToken.js');
 
 function updateWatchOrder(id, index) {
-    console.log('doot doot, id, index')
     return knex('watch').where('id', id).update({
         order: index
     })

@@ -6,8 +6,7 @@ bodyParser = require('body-parser'),
 busboy = require('connect-busboy'),
 busboyBodyParser = require('busboy-body-parser'),
 Busboy = require('busboy'),
-VerifyToken = require('../middleware/VerifyToken'),
-config = require('../config/config');
+VerifyToken = require('../middleware/VerifyToken');
 
 router.use(busboy())
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -15,10 +14,10 @@ router.use(bodyParser.json());
 router.use(busboyBodyParser());
 
 const s3bucket = new AWS.S3({
-    accessKeyId: config.ACCESS_KEY_ID,
-    secretAccessKey: config.SECRET_ACCESS_KEY,
-    Bucket: config.BUCKET,
-    region: config.REGION
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    Bucket: process.env.BUCKET,
+    region: process.env.REGION
 });
 
 function uploadWatchImagesToS3(images, res) 
@@ -26,7 +25,6 @@ function uploadWatchImagesToS3(images, res)
     s3bucket.createBucket(function () {
         let uploadedImages = [];
 
-        console.log('should upload these bois', images)
         images.forEach(image => {
             
             let params = {
@@ -48,7 +46,6 @@ function uploadWatchImagesToS3(images, res)
                         image.src = image.Location;
                         image.order = index;
                     });
-        console.log('return uploaded dudes', uploadedImages)
                     
                 res.status(201).json({uploadedImages})
                 }; 
@@ -63,7 +60,6 @@ router.post('/watch-images', VerifyToken, function (req, res, next) {
     busboy.on('finish', function() {
         let files = req.files;
         let imagesArr = Object.values(files); //turn object of objects into array of objects
-        console.log('upload this images arr', imagesArr)
         uploadWatchImagesToS3(imagesArr, res);
    });
     req.pipe(busboy);

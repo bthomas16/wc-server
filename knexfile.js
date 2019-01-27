@@ -21,7 +21,7 @@ module.exports = {
   // most stable and tested version of staging
   production: {
     client: 'postgresql',
-    connection: ''
+    connection: 'postgres://pgrwwtmjtkscbe:aa5062842eda9d640edd55df9c3235049c255a06c82251650aaf656bda84f9d9@ec2-23-21-171-25.compute-1.amazonaws.com:5432/d6pbq7oegb2s53'
   } 
 
 };

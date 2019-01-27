@@ -1,4 +1,2 @@
-config/*
-config/config.js
-config/db.js
-config/passport.js
+.env
+config/HerokuEnvVariables.js
