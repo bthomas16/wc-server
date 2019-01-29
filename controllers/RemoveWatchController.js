@@ -7,11 +7,11 @@ const VerifyToken = require('../middleware/VerifyToken.js');
 
 router.put('/', VerifyToken, (req, res) => {
     let watchId = req.query.id;
-    removeWatchFalseInCollectionFlag(watchId, res)
+    removeWatchNullUserId(watchId, res)
  })
  
  // change watch to be owned to no user
- function removeWatchFalseInCollectionFlag(id, res) {
+ function removeWatchNullUserId(id, res) {
      knex('watch').where('id', id).returning('*').update({
          isStillInCollection: false
      }).then(watchUpdated => {
@@ -22,7 +22,6 @@ router.put('/', VerifyToken, (req, res) => {
  // Add watch to collection of formerly owned watches
  router.post('/', VerifyToken, async (req, res) => {
      let watch = req.body;
-     console.log(watch, 'fucking here')
      knex('user_watch_removed').returning('*').insert({
          user_id: req.id,
          watch_id: watch.watchToRemove.id,
@@ -31,7 +30,7 @@ router.put('/', VerifyToken, (req, res) => {
          receivedInReturn: watch.reasonsWatchMoved.receivedInReturn,
          value: watch.reasonsWatchMoved.value
      }).then(watch => {
-         return res.status(201).json({ watch })
+         res.status(201).json({ watch: watch })
      })
  })
 
