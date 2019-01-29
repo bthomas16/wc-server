@@ -21,12 +21,10 @@ const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPasswo
 const WatchShareController = require('./controllers/WatchShareController')
 const serveStatic = require("serve-static");
 const path = require('path');
-const secure = require('ssl-express-www')
 const port = process.env.PORT || 8081;
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(secure)
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
