@@ -21,7 +21,6 @@ const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPasswo
 const WatchShareController = require('./controllers/WatchShareController')
 const serveStatic = require("serve-static");
 const path = require('path');
-const enforce = require('express-sslify');
 const port = process.env.PORT || 8081;
 
 app.use(passport.initialize());

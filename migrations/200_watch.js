@@ -22,6 +22,7 @@ exports.up = function(knex, Promise) {
       table.string('band');
       table.string('dateAcquired');
       table.string('watchStyle');
+      table.string('caseMaterial');
 
       table.boolean('isFullKit');
       table.boolean('isForSale');
