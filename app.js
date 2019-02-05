@@ -21,6 +21,7 @@ const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPasswo
 const WatchShareController = require('./controllers/WatchShareController')
 const serveStatic = require("serve-static");
 const path = require('path');
+const enforce = require('express-sslify');
 const port = process.env.PORT || 8081;
 
 app.use(passport.initialize());
@@ -55,8 +56,10 @@ app.use('/.well-known/acme-challenge/FH9Ji48jrYkg4B8P5jiGSOPtiXVTa5ACZxckwBMa2pQ
 
 app.use('/api/static-assets', express.static('public'));
 
-if (process.env.NODE_ENV !== 'development') {  
+
+if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'test') {  
   app.use(express.static(__dirname + '/dist'))
+  app.use(enforce.HTTPS());
   
   app.get('*', (req, res) => {
     res.sendFile((__dirname + '/dist/index.html'));
