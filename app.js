@@ -34,7 +34,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '125mb'}));
+app.use(bodyParser.urlencoded({limit: '125mb', extended: true}));
 
 app.use('/api/user', UserController);
 app.use('/api/watch', WatchController);
