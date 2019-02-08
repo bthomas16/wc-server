@@ -12,25 +12,26 @@ router.put('/', VerifyToken, (req, res) => {
  
  // change watch to be owned to no user
  function removeWatchNullUserId(id, res) {
-     knex('watch').where('id', id).returning('*').update({
+     knex('watch').where('id', id).returning('id').update({
          isStillInCollection: false
-     }).then(watchUpdated => {
-         res.status(200).json({ watch: watchUpdated[0]})
+     }).then((id) => {
+         res.json({ isSuccess: true, id: id[0]})
      })
  }
  
  // Add watch to collection of formerly owned watches
  router.post('/', VerifyToken, async (req, res) => {
      let watch = req.body;
+     console.log('server watch to remove', watch)
      knex('user_watch_removed').returning('*').insert({
          user_id: req.id,
          watch_id: watch.watchToRemove.id,
          typeMoved: watch.reasonsWatchMoved.typeMoved,
          receivedBy: watch.reasonsWatchMoved.receivedBy,
          receivedInReturn: watch.reasonsWatchMoved.receivedInReturn,
-         value: watch.reasonsWatchMoved.value
+         value: watch.reasonsWatchMoved.value 
      }).then(watch => {
-         res.status(201).json({ watch: watch })
+         res.json({ watch: watch })
      })
  })
 

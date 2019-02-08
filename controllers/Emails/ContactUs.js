@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
         html: `<p>Here is a copy of the message you sent to Watch SOC:</p>
                <p>${req.body.messageBody}</p>
                <p>We will get back to you as soon as possible!</p>
-               <a href="www.watchsoc.com/profile" target="_blank">Visit your profile here</a>` // html body
+               <a href="www.watchsoc.com/profile">Visit your profile here</a>` // html body
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
