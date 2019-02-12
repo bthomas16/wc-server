@@ -17,7 +17,7 @@ describe('User Watches - API', function() {
     before(function() {
         // would normally lookup user by ID to get user.id
         token = jwt.sign({ id: 987654321 }, process.env.secret, {
-            expiresIn: 86400 // expires in 24 hours
+            expiresIn: ((86400 * 30) * 3) // SECONDS => expires in 3 months ((1 day x 30 days) x 3 days)
           })
     });
 
