@@ -22,15 +22,16 @@ exports.up = function(knex, Promise) {
       table.string('band');
       table.string('dateAcquired');
       table.string('watchStyle');
+      table.string('caseMaterial');
 
       table.boolean('isFullKit');
       table.boolean('isForSale');
       table.boolean('isForTrade');
       table.boolean('isStillInCollection');
 
-      table.integer('acquiredFor');
       table.integer('forSalePrice');
       table.integer('forTradeValue');
+      table.integer('acquiredFor');
       table.integer('marketValue');
   })
 };

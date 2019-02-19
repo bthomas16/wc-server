@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
         to: formData.email, // list of receivers
         subject: "Welcome to Watch SOC!", // Subject line
         html: `<p>Thank you for joining Watch SOC, ${formData.firstName}! We are so excited to have you join us.</p>
-        <a href="www.watchsoc.com/profile" target="_blank">Visit your profile here</a>` // html body
+        <a href="www.watchsoc.com/profile">Visit your profile here</a>` // html body
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

@@ -22,7 +22,6 @@ const s3bucket = new AWS.S3({
 
 function uploadWatchImagesToS3(files, res) 
 {
-    console.log('oh yeah', files)
     s3bucket.createBucket(function () {
         let uploadedImages = [];
 
@@ -30,13 +29,6 @@ function uploadWatchImagesToS3(files, res)
 
         let fileExtension = file.src.split(";")[0].split("/")
         fileExtension = fileExtension[fileExtension.length - 1]
-        console.log(fileExtension)
-
-    // let s3Image = {
-    //     imageName: file.fileName,
-    //     imageBody: file,
-    //     imageExtension: imageExtension,
-    //   }
             
             let bufferData = new Buffer(file.src.replace(/^data:image\/\w+;base64,/, ""),'base64')
             let params = {
@@ -52,16 +44,14 @@ function uploadWatchImagesToS3(files, res)
                 if (err) {
                     console.log('error in callback', err);
                 }
-                console.log(data)
                 uploadedImages.push(data);
                 
                 if (uploadedImages.length == files.length) {
                     uploadedImages.forEach((image, index) => {
                         image.src = image.Location;
-                        image.order = index;
+                        image.fileName = file.fileName
                     });
-                    
-                res.status(201).json(uploadedImages)
+                    res.status(201).json(uploadedImages)
                 }; 
             });   
         })
@@ -71,14 +61,6 @@ function uploadWatchImagesToS3(files, res)
 router.post('/watch-images', VerifyToken, function (req, res, next) {
     let files = req.body;
     uploadWatchImagesToS3(files, res);
-    
-    
-//     let busboy = new Busboy({ headers: req.headers });
-
-//     busboy.on('finish', function() {
-//         // let imagesArr = Object.values(files); //turn object of objects into array of objects
-//    });
-//     req.pipe(busboy);
 });
 
 // PROFILE IMAGE // PROFILE IMAGE
