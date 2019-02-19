@@ -29,9 +29,9 @@ exports.up = function(knex, Promise) {
       table.boolean('isForTrade');
       table.boolean('isStillInCollection');
 
-      table.integer('acquiredFor');
       table.integer('forSalePrice');
       table.integer('forTradeValue');
+      table.integer('acquiredFor');
       table.integer('marketValue');
   })
 };

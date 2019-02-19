@@ -68,7 +68,6 @@ router.post('/login', async (req, res) =>
 router.get('/validate-jwt/', (req, res) => 
 {
   let token = req.query.jwt;
-  console.log('got ya token', token)
   if (!token) {
     console.log('no token', token)
     res.json({isSuccess: false, message: 'Pleasge login to access your profile'});
@@ -87,6 +86,20 @@ router.get('/validate-jwt/', (req, res) =>
       }
     })
   } 
+});
+
+router.get('/validate-email', VerifyToken, async (req, res) => {
+  let userId = req.id
+  let email = req.query.email
+  let duplicateEmail = await knex.select('email').from('peeps').where('email', email).andWhereNot('id', userId).first()
+
+  if (!duplicateEmail) {
+    res.json({isSuccess: true})
+  }
+  else {
+    res.json({isSuccess: false})
+  }
+  
 })
 
 
