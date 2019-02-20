@@ -20,8 +20,11 @@ const WelcomeEmailController = require('./controllers/Emails/WelcomeEmail');
 const ForgotPasswordEmailController = require('./controllers/Emails/ForgotPassword');
 const WatchShareController = require('./controllers/WatchShareController')
 const serveStatic = require("serve-static");
+const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 const path = require('path');
 const port = process.env.PORT || 8081;
+
+app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/], 301)); // Force HTTPS from HTTP
 
 app.use(passport.initialize());
 app.use(passport.session());
