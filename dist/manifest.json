@@ -1,7 +1,6 @@
 {
   "name": "Watch SOC",
   "short_name": "Watches",
-  "description": "Manage your current, past, and future Watch SOC",
   "icons": [
     {
       "src": "/img/icons/watch-icon.png",
@@ -18,5 +17,6 @@
   "display": "standalone",
   "background_color": "#173f5f",
   "orientation": "any",
+  "scope": ".",
   "theme_color": "#173f5f"
 }
