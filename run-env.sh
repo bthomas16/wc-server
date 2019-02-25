@@ -10,6 +10,6 @@ echo "********************"
 
 export NODE_ENV && node app.js
 
-# use ./run-env.sh 'development' || 'staging' || 'production'
+# use ./run-env.sh 'development' || 'test' || 'staging' || 'production'
 
 
