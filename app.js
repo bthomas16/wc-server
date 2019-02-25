@@ -58,15 +58,13 @@ app.use('/.well-known/acme-challenge/FH9Ji48jrYkg4B8P5jiGSOPtiXVTa5ACZxckwBMa2pQ
 
 app.use('/api/static-assets', express.static('public'));
 
-
-
-if (process.env.NODE_ENV !== 'development') {  
+// if (process.env.NODE_ENV !== 'development') {  
   app.use(express.static(__dirname + '/dist'))
   
   app.get('*', (req, res) => {
     res.sendFile((__dirname + '/dist/index.html'));
   })  
-}
+// }
 
 app.listen(port, ()=> {
   console.log(`listening on port ${port}`)
