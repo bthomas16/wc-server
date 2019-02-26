@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/robots.txt"
   },
   {
-    "revision": "260c4971f6c2c88da2b8",
-    "url": "/js/app~21833f8f.f6497823.js"
+    "revision": "1632c4c49c98491d07c4",
+    "url": "/js/app~21833f8f.fc73d2d1.js"
   },
   {
-    "revision": "c593a8d0e47a620c287bfea369c48341",
+    "revision": "0c67c751eb999ee9956e01a1c345535a",
     "url": "/index.html"
   },
   {
@@ -124,7 +124,7 @@ self.__precacheManifest = [
     "url": "/css/app~748942c6.e3e2c274.css"
   },
   {
-    "revision": "260c4971f6c2c88da2b8",
+    "revision": "1632c4c49c98491d07c4",
     "url": "/css/app~21833f8f.e55b552f.css"
   },
   {
