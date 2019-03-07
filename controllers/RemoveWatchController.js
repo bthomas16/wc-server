@@ -22,7 +22,6 @@ router.put('/', VerifyToken, (req, res) => {
  // Add watch to collection of formerly owned watches
  router.post('/', VerifyToken, async (req, res) => {
      let watch = req.body;
-     console.log('server watch to remove', watch)
      knex('user_watch_removed').returning('*').insert({
          user_id: req.id,
          watch_id: watch.watchToRemove.id,

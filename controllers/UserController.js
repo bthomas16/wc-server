@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../config/db.js');
-const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user')();
 const Promise = require('promise');
 const jwt = require('jsonwebtoken');
-
+const request = require('request-promise');
 
 const VerifyToken = require('../middleware/VerifyToken.js');
 
@@ -64,6 +63,31 @@ router.post('/login', async (req, res) =>
     return res.status(401).json({isSuccess: false, message: 'Incorrect email or password', err});
   }
 });
+
+router.post('/fbook-auth', (req, res) => {
+  console.log('fuckl it')
+  let accessToken = req.body.accessToken
+  let fbookUserId =  req.body.fbookUserId
+
+  const userFieldSet = 'id, name, email, picture'
+
+  const options = {
+    method: 'GET',
+      uri: `https://graph.facebook.com/v3.2/${fbookUserId}`,
+      qs: {
+        access_token: accessToken,
+        // fields: userFieldSet
+      }
+  }
+  
+
+  request(options)
+    .then(async fbResult => {
+      console.log('got it', fbResult)  
+      await res.json(fbResult)
+    })
+
+})
 
 router.get('/validate-jwt/', (req, res) => 
 {
