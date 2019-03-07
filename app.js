@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-const passport = require('passport');
-
 const app = express();
 const UserController = require('./controllers/UserController');
 const FavoriteWatchController = require('./controllers/FavoriteWatchController');
@@ -25,9 +23,6 @@ const path = require('path');
 const port = process.env.PORT || 8081;
 
 app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/], 301)); // Force HTTPS from HTTP
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
