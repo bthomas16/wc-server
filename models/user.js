@@ -70,6 +70,69 @@ function SaveUserToDB(formData, hashPassword, res)
     })
 }
 
+
+// FBOOK Auth
+
+async function FBookAuth (fbookData) {
+    // does a fbook user exist?
+    let isUser = await DoesFBookUserExist(fbookData.email.toLowerCase())
+    if (isUser) { //login existing user
+        let token = jwt.sign({ id: isUser.id }, process.env.secret, {
+            expiresIn: ((86400 * 30) * 3) // SECONDS => expires in 3 months ((1 day x 30 days) x 3 days)
+          })
+       return { isSuccess: true, user: isUser, token }
+    }
+    else { //register new user
+        return await RegisterUserFromFbookAuth (fbookData)
+    }
+}
+
+async function DoesFBookUserExist (email) {
+    return await knex('peeps').select().returning('id').where('email', email).first().then(async userId => {
+        return await userId
+    }).catch(() => {
+        return false
+    })
+}
+
+async function RegisterUserFromFbookAuth (fbookData) {
+    let catName = fbookData.name,
+    seperator = " ",
+    unCatName = catName.split(seperator) , 
+    firstName = unCatName[0],
+    lastName = unCatName[1],
+    tempEmail = fbookData.email.toLowerCase()
+
+    // changeHeight(fbookData.picture.data)
+
+    watchSocUser = {
+        firstName: firstName,
+        lastName: lastName,
+        email: tempEmail,
+        password: 'fbookgenericpassword_watchsoc',
+        imgSrc: fbookData.picture.data.url
+    }
+    
+    return await knex('peeps')
+   .returning('id')
+   .insert(watchSocUser).then(async (id) => {
+        console.log('user was saved here is the ID', id[0])
+        let token = await jwt.sign({ id: id[0] }, process.env.secret, {
+            expiresIn: ((86400 * 30) * 3) // SECONDS => expires in 3 months ((1 day x 30 days) x 3 days)
+          })
+        return {isSuccess: true, message: 'Successfully Registered', token, user: watchSocUser} 
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
+function changeHeight (img) {
+    img.height = 200
+    img.width = 200
+}
+
+//END FBook Auth
+
 // LOGIN LOGIN LOGIN LOGIN
 
 function ValidLoginFormData(formData) 
@@ -129,6 +192,10 @@ function FindUser(id, res)
         ValidLoginFormData,
         RetrieveUser,
         SetJwtToken,
-        FindUser
+        FindUser,
+
+        // FBook Auth
+        FBookAuth
+
     }
 }
