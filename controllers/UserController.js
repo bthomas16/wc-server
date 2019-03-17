@@ -64,29 +64,29 @@ router.post('/login', async (req, res) =>
   }
 });
 
-router.post('/fbook-auth', (req, res) => {
-  console.log('fuckl it')
+router.post('/fbook-auth', async (req, res) => {
   let accessToken = req.body.accessToken
   let fbookUserId =  req.body.fbookUserId
 
-  const userFieldSet = 'id, name, email, picture'
+  const userFieldSet = 'id, name, email, picture.width(125).height(125)'
 
   const options = {
     method: 'GET',
-      uri: `https://graph.facebook.com/v3.2/${fbookUserId}`,
+      uri: `https://graph.facebook.com/v3.2/` + fbookUserId,
       qs: {
         access_token: accessToken,
-        // fields: userFieldSet
+        fields: userFieldSet
       }
   }
   
-
-  request(options)
+  await request(options)
     .then(async fbResult => {
-      console.log('got it', fbResult)  
-      await res.json(fbResult)
+      let parsedResult = JSON.parse(fbResult)
+      let response = await User.FBookAuth(parsedResult)
+      res.json(response)
+    }).catch(err => {
+      console.log(err)
     })
-
 })
 
 router.get('/validate-jwt/', (req, res) => 
