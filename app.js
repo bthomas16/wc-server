@@ -51,7 +51,7 @@ app.use('/api/watch-share', WatchShareController);
 
 app.use('/.well-known/acme-challenge/FH9Ji48jrYkg4B8P5jiGSOPtiXVTa5ACZxckwBMa2pQ', CertController)
 
-app.use('/api/static-assets', express.static('public'));
+// app.use('/api/static-assets', express.static('public'));
 
 if (process.env.NODE_ENV !== 'development') {  
   app.use(express.static(__dirname + '/dist'))
