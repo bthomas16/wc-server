@@ -26,9 +26,6 @@ function uploadWatchImagesToS3(files, res)
         let uploadedImages = [];
 
         files.forEach(file => {
-
-        let fileExtension = file.src.split(";")[0].split("/")
-        fileExtension = fileExtension[fileExtension.length - 1]
             
             let bufferData = new Buffer(file.src.replace(/^data:image\/\w+;base64,/, ""),'base64')
             let params = {
@@ -36,7 +33,7 @@ function uploadWatchImagesToS3(files, res)
                 Key:  Date.now().toString() + file.fileName,
                 Body: bufferData,
                 ContentEncoding: 'base64',
-                ContentType: 'image/' + fileExtension,
+                // ContentType: 'image/jpg',
                 ACL: 'public-read'
             };
 

@@ -14,7 +14,7 @@ const watchInfos = [
             "We encompass each limited edition design with a unique character that is totally individual to the brand. This vision will always be carried forward into every new model we create."
         ],
         siteLink: "https://www.oceancrawler.com/",
-        logoSrc: '/api/static-assets/oc-logo.png'
+        logoSrc: '/img/oc-logo.png'
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const watchInfos = [
             "It is very rare to see such a young company mature so quickly. However from day one Wing and Angela have poured their heart and soul into making Aragon the timepiece powerhouse it is today and have always stayed true to their beliefs of creating modern, luxury designs that are accessible to everyone. Wings conventional, unisex designs are constantly featured in the media and continue to receive international acclaim."
         ],
         siteLink: "https://www.aragonwatch.com/",
-        logoSrc: '/api/static-assets/aragon.jpg'
+        logoSrc: '/img/aragon.jpg'
     },
     {
         id: 3,
@@ -52,7 +52,7 @@ const watchInfos = [
             "We continue to grow (we have customers now in more than 100 countries) and whilst we have come a long way since those days in the converted chicken shack, everyone at CW, whether based in Maidenhead or Biel, remains totally committed to the art of crafting beautiful, premium quality watches that are accessible to the many, not the few."
         ],
         siteLink: "https://www.christopherward.com/",
-        logoSrc: '/api/static-assets/ch-ward.png'
+        logoSrc: '/img/ch-ward.png'
     },
     {
         id: 4,
@@ -63,7 +63,7 @@ const watchInfos = [
             "Zelos is based in Singapore and was founded by Elshan Tang. Having been fascinated by mechanical timepieces for many years, building one was the next logical step. He believes that great timepiece designs should not be confined to luxury brands."
         ],
         siteLink: "https://zeloswatches.com/",
-        logoSrc: '/api/static-assets/zelos.png'
+        logoSrc: '/img/zelos.png'
     },
     {
         id: 5,
@@ -74,7 +74,7 @@ const watchInfos = [
             "Terra Cielo Mare is a family company that, one generation after another, creates uncommon and peculiar timepieces. We think the best way to carve out our living space in a world full of giants is being able to listen to our interior voice, following our passions and consequently having some fun. Behind everyone of our watches there’s a passion, a quest, sometimes an obsession – always something which we believed in."
         ],
         siteLink: "https://www.terracielomare.com",
-        logoSrc: '/api/static-assets/tcm.png'
+        logoSrc: '/img/tcm.png'
     }
 
 ];
