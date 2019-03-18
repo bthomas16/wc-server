@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/img/watcheshomecardbg_copy.jpg"
   },
   {
-    "revision": "6138e26d41f0f55c330d",
-    "url": "/js/app~f71cff67.1a2fe7d4.js"
+    "revision": "09dea12f979e9c308f5b",
+    "url": "/js/app~f71cff67.764ad31c.js"
   },
   {
     "revision": "2ac9d0882e29bbb03ada",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "b63d6f370de96b15c397cdfd6702fadf",
+    "revision": "451756ee76d93262b51176f80a3b9a02",
     "url": "/index.html"
   },
   {
@@ -192,8 +192,8 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~3c826496.ac0ebac2.css"
   },
   {
-    "revision": "6138e26d41f0f55c330d",
-    "url": "/css/app~f71cff67.ac237429.css"
+    "revision": "09dea12f979e9c308f5b",
+    "url": "/css/app~f71cff67.5c08839a.css"
   },
   {
     "revision": "4ae2ee35ab8a17dd0bbc",
