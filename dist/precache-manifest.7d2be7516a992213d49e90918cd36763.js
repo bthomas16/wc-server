@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/img/tablebg.jpg"
   },
   {
-    "revision": "6c65449eb1c966277073",
-    "url": "/js/app~21833f8f.376a2a29.js"
+    "revision": "a154da63944cbaa5086d",
+    "url": "/js/app~21833f8f.b5b9df57.js"
   },
   {
     "revision": "ddeb136a7daf8e58830147873bf4969f",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/img/watcheshomecardbg_copy.jpg"
   },
   {
-    "revision": "09dea12f979e9c308f5b",
-    "url": "/js/app~f71cff67.764ad31c.js"
+    "revision": "afb39f09a38417d425d8",
+    "url": "/js/app~f71cff67.82572421.js"
   },
   {
     "revision": "2ac9d0882e29bbb03ada",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "451756ee76d93262b51176f80a3b9a02",
+    "revision": "f913eb9ad782485c9f9036f6b8918ca5",
     "url": "/index.html"
   },
   {
@@ -192,16 +192,16 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~3c826496.ac0ebac2.css"
   },
   {
-    "revision": "09dea12f979e9c308f5b",
-    "url": "/css/app~f71cff67.5c08839a.css"
+    "revision": "afb39f09a38417d425d8",
+    "url": "/css/app~f71cff67.34aab9a3.css"
   },
   {
     "revision": "4ae2ee35ab8a17dd0bbc",
     "url": "/css/app~d0ae3f07.0e54adb8.css"
   },
   {
-    "revision": "6c65449eb1c966277073",
-    "url": "/css/app~21833f8f.62454bdc.css"
+    "revision": "a154da63944cbaa5086d",
+    "url": "/css/app~21833f8f.75a69b3f.css"
   },
   {
     "revision": "ebf2e1fd80d06d3e85cb",
