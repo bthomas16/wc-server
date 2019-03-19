@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/img/watcheshomecardbg_copy.jpg"
   },
   {
-    "revision": "07f4b1c89b377758608c",
-    "url": "/js/app~f71cff67.af43e57d.js"
+    "revision": "5a692d4d6ba92959bca6",
+    "url": "/js/app~f71cff67.37a458f8.js"
   },
   {
     "revision": "2ac9d0882e29bbb03ada",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "40902fe3bee599af4e056b496ebf7924",
+    "revision": "c157a2986997aa7183f449f7e518374d",
     "url": "/index.html"
   },
   {
@@ -128,8 +128,8 @@ self.__precacheManifest = [
     "url": "/img/full-heart.png"
   },
   {
-    "revision": "41d6e3e4018db711f782b8b704b90c11",
-    "url": "/img/oc-logo_lg.png"
+    "revision": "3b7fd332225ad2f58e248ce9063accb9",
+    "url": "/img/zelos_lg.png"
   },
   {
     "revision": "a951e4b84d682f44d6b3602324493be8",
@@ -140,16 +140,16 @@ self.__precacheManifest = [
     "url": "/img/fortuna.png"
   },
   {
+    "revision": "41d6e3e4018db711f782b8b704b90c11",
+    "url": "/img/oc-logo_lg.png"
+  },
+  {
     "revision": "7953a607072fa0ed468986a4671b2d47",
     "url": "/img/tcm_lg.png"
   },
   {
     "revision": "70007ffd5928d1c3d22fce5d4dcc2e0a",
     "url": "/img/tcm.png"
-  },
-  {
-    "revision": "3b7fd332225ad2f58e248ce9063accb9",
-    "url": "/img/zelos_lg.png"
   },
   {
     "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
@@ -192,8 +192,8 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~3c826496.ac0ebac2.css"
   },
   {
-    "revision": "07f4b1c89b377758608c",
-    "url": "/css/app~f71cff67.cba757e1.css"
+    "revision": "5a692d4d6ba92959bca6",
+    "url": "/css/app~f71cff67.fbd50867.css"
   },
   {
     "revision": "4ae2ee35ab8a17dd0bbc",
