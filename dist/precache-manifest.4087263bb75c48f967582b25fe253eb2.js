@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/img/tablebg.jpg"
   },
   {
-    "revision": "bb8a8b25287928af42c1",
-    "url": "/js/app~21833f8f.e74777db.js"
+    "revision": "f7e12614eea199020785",
+    "url": "/js/app~21833f8f.d09acc02.js"
   },
   {
     "revision": "ddeb136a7daf8e58830147873bf4969f",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "0d185836297ca1df1d69f96751053b1c",
+    "revision": "e4f9759d5c07a454f4a86a588139b749",
     "url": "/index.html"
   },
   {
@@ -104,8 +104,8 @@ self.__precacheManifest = [
     "url": "/img/tcm-featured.jpg"
   },
   {
-    "revision": "ebf2e1fd80d06d3e85cb",
-    "url": "/js/DiscoverWatches~31ecd969.91eb449d.js"
+    "revision": "4d57ee20592742ce7817",
+    "url": "/js/DiscoverWatches~31ecd969.059ae3e8.js"
   },
   {
     "revision": "2356a7188f683ee7dbe9f4d23512795c",
@@ -152,8 +152,8 @@ self.__precacheManifest = [
     "url": "/img/tcm.png"
   },
   {
-    "revision": "7f15f4f360c987d606d452da30351f80",
-    "url": "/img/ch-ward-featured.jpg"
+    "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
+    "url": "/img/add-img-icon.png"
   },
   {
     "revision": "8990f7fca2ca7d1b0e7f56af1784dd8b",
@@ -164,8 +164,8 @@ self.__precacheManifest = [
     "url": "/img/empty-heart.png"
   },
   {
-    "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
-    "url": "/img/add-img-icon.png"
+    "revision": "7f15f4f360c987d606d452da30351f80",
+    "url": "/img/ch-ward-featured.jpg"
   },
   {
     "revision": "9fc52e8e913d1451b7f7ca08d78111e0",
@@ -200,11 +200,11 @@ self.__precacheManifest = [
     "url": "/css/app~d0ae3f07.61870e6e.css"
   },
   {
-    "revision": "bb8a8b25287928af42c1",
+    "revision": "f7e12614eea199020785",
     "url": "/css/app~21833f8f.d2a0feb3.css"
   },
   {
-    "revision": "ebf2e1fd80d06d3e85cb",
-    "url": "/css/DiscoverWatches~31ecd969.12f2f422.css"
+    "revision": "4d57ee20592742ce7817",
+    "url": "/css/DiscoverWatches~31ecd969.06f17538.css"
   }
 ];
