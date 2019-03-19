@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "61600efa5bc58c3ec679601dcdbf1403",
-    "url": "/img/aragon_lg.jpg"
+    "revision": "4cdf0e55ff2ffc66fc5a80a40767b016",
+    "url": "/img/aragon.jpg"
   },
   {
     "revision": "298d4a6bcd9c164b07e7d890567c1c5d",
@@ -16,20 +16,20 @@ self.__precacheManifest = [
     "url": "/js/app~21833f8f.e74777db.js"
   },
   {
-    "revision": "dda064240577917c20682355c5aedc70",
-    "url": "/img/watcheshomecardbg_copy.jpg"
+    "revision": "ddeb136a7daf8e58830147873bf4969f",
+    "url": "/img/zelos-featured.jpg"
   },
   {
     "revision": "3b3cff3c9e7e36e10464",
     "url": "/js/app~d0ae3f07.c33c5d43.js"
   },
   {
-    "revision": "ddeb136a7daf8e58830147873bf4969f",
-    "url": "/img/zelos-featured.jpg"
+    "revision": "dda064240577917c20682355c5aedc70",
+    "url": "/img/watcheshomecardbg_copy.jpg"
   },
   {
-    "revision": "a890d0d094e6f1d10761",
-    "url": "/js/app~f71cff67.74893e07.js"
+    "revision": "3cb057b277c577bc5491",
+    "url": "/js/app~f71cff67.f7ebba4a.js"
   },
   {
     "revision": "2ac9d0882e29bbb03ada",
@@ -96,20 +96,20 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "1777f87cc40aad0915016f8e1b4797e4",
+    "revision": "0d185836297ca1df1d69f96751053b1c",
     "url": "/index.html"
   },
   {
-    "revision": "2356a7188f683ee7dbe9f4d23512795c",
-    "url": "/img/settings.png"
+    "revision": "d1c4b19fcdc9f2f2d7caedaec9e4e6ac",
+    "url": "/img/tcm-featured.jpg"
   },
   {
     "revision": "ebf2e1fd80d06d3e85cb",
     "url": "/js/DiscoverWatches~31ecd969.91eb449d.js"
   },
   {
-    "revision": "d1c4b19fcdc9f2f2d7caedaec9e4e6ac",
-    "url": "/img/tcm-featured.jpg"
+    "revision": "2356a7188f683ee7dbe9f4d23512795c",
+    "url": "/img/settings.png"
   },
   {
     "revision": "a4b5899734f202149ea718f16e076b01",
@@ -120,20 +120,20 @@ self.__precacheManifest = [
     "url": "/img/zelos.png"
   },
   {
-    "revision": "db4fcac1f2a5fbb1d7b3788a138c6bd0",
-    "url": "/img/full-heart.png"
-  },
-  {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/robots.txt"
   },
   {
-    "revision": "a951e4b84d682f44d6b3602324493be8",
-    "url": "/img/fortuna_lg.png"
+    "revision": "db4fcac1f2a5fbb1d7b3788a138c6bd0",
+    "url": "/img/full-heart.png"
   },
   {
     "revision": "3b7fd332225ad2f58e248ce9063accb9",
     "url": "/img/zelos_lg.png"
+  },
+  {
+    "revision": "a951e4b84d682f44d6b3602324493be8",
+    "url": "/img/fortuna_lg.png"
   },
   {
     "revision": "bcf1c5c7bd6af34de7a23c8b23e4fa78",
@@ -152,8 +152,8 @@ self.__precacheManifest = [
     "url": "/img/tcm.png"
   },
   {
-    "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
-    "url": "/img/add-img-icon.png"
+    "revision": "7f15f4f360c987d606d452da30351f80",
+    "url": "/img/ch-ward-featured.jpg"
   },
   {
     "revision": "8990f7fca2ca7d1b0e7f56af1784dd8b",
@@ -164,16 +164,16 @@ self.__precacheManifest = [
     "url": "/img/empty-heart.png"
   },
   {
-    "revision": "7f15f4f360c987d606d452da30351f80",
-    "url": "/img/ch-ward-featured.jpg"
+    "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
+    "url": "/img/add-img-icon.png"
   },
   {
     "revision": "9fc52e8e913d1451b7f7ca08d78111e0",
     "url": "/img/ch-ward.png"
   },
   {
-    "revision": "4cdf0e55ff2ffc66fc5a80a40767b016",
-    "url": "/img/aragon.jpg"
+    "revision": "61600efa5bc58c3ec679601dcdbf1403",
+    "url": "/img/aragon_lg.jpg"
   },
   {
     "revision": "5b8448570543fbb6b13ba64ec54888db",
@@ -192,8 +192,8 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~3c826496.ac0ebac2.css"
   },
   {
-    "revision": "a890d0d094e6f1d10761",
-    "url": "/css/app~f71cff67.ded59d16.css"
+    "revision": "3cb057b277c577bc5491",
+    "url": "/css/app~f71cff67.a01dcbf9.css"
   },
   {
     "revision": "3b3cff3c9e7e36e10464",
