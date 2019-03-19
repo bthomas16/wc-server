@@ -12,20 +12,20 @@ self.__precacheManifest = [
     "url": "/img/tablebg.jpg"
   },
   {
-    "revision": "f7e12614eea199020785",
-    "url": "/js/app~21833f8f.d09acc02.js"
+    "revision": "dbe469246c654c1526cd",
+    "url": "/js/app~21833f8f.2432d6f5.js"
   },
   {
-    "revision": "ddeb136a7daf8e58830147873bf4969f",
-    "url": "/img/zelos-featured.jpg"
+    "revision": "dda064240577917c20682355c5aedc70",
+    "url": "/img/watcheshomecardbg_copy.jpg"
   },
   {
     "revision": "3b3cff3c9e7e36e10464",
     "url": "/js/app~d0ae3f07.c33c5d43.js"
   },
   {
-    "revision": "dda064240577917c20682355c5aedc70",
-    "url": "/img/watcheshomecardbg_copy.jpg"
+    "revision": "ddeb136a7daf8e58830147873bf4969f",
+    "url": "/img/zelos-featured.jpg"
   },
   {
     "revision": "3cb057b277c577bc5491",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "e4f9759d5c07a454f4a86a588139b749",
+    "revision": "1bb95469e3ed1b9edb75c20b8ebfa459",
     "url": "/index.html"
   },
   {
@@ -104,8 +104,8 @@ self.__precacheManifest = [
     "url": "/img/tcm-featured.jpg"
   },
   {
-    "revision": "4d57ee20592742ce7817",
-    "url": "/js/DiscoverWatches~31ecd969.059ae3e8.js"
+    "revision": "2bf62f6d26c8de2237ef",
+    "url": "/js/DiscoverWatches~31ecd969.d39bcc9a.js"
   },
   {
     "revision": "2356a7188f683ee7dbe9f4d23512795c",
@@ -200,11 +200,11 @@ self.__precacheManifest = [
     "url": "/css/app~d0ae3f07.61870e6e.css"
   },
   {
-    "revision": "f7e12614eea199020785",
+    "revision": "dbe469246c654c1526cd",
     "url": "/css/app~21833f8f.d2a0feb3.css"
   },
   {
-    "revision": "4d57ee20592742ce7817",
-    "url": "/css/DiscoverWatches~31ecd969.06f17538.css"
+    "revision": "2bf62f6d26c8de2237ef",
+    "url": "/css/DiscoverWatches~31ecd969.71596141.css"
   }
 ];
