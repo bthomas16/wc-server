@@ -12,24 +12,24 @@ self.__precacheManifest = [
     "url": "/img/tablebg.jpg"
   },
   {
-    "revision": "dbe469246c654c1526cd",
-    "url": "/js/app~21833f8f.2432d6f5.js"
-  },
-  {
-    "revision": "dda064240577917c20682355c5aedc70",
-    "url": "/img/watcheshomecardbg_copy.jpg"
-  },
-  {
-    "revision": "3b3cff3c9e7e36e10464",
-    "url": "/js/app~d0ae3f07.c33c5d43.js"
+    "revision": "91096188a74a259abcc9",
+    "url": "/js/app~21833f8f.f855f884.js"
   },
   {
     "revision": "ddeb136a7daf8e58830147873bf4969f",
     "url": "/img/zelos-featured.jpg"
   },
   {
-    "revision": "3cb057b277c577bc5491",
-    "url": "/js/app~f71cff67.f7ebba4a.js"
+    "revision": "11a3638178ed87453b91",
+    "url": "/js/app~d0ae3f07.961f13f3.js"
+  },
+  {
+    "revision": "dda064240577917c20682355c5aedc70",
+    "url": "/img/watcheshomecardbg_copy.jpg"
+  },
+  {
+    "revision": "b1349e0de5a8881016b7",
+    "url": "/js/app~f71cff67.cb4a523f.js"
   },
   {
     "revision": "2ac9d0882e29bbb03ada",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors~fdc6512a.315e1e82.js"
   },
   {
-    "revision": "1bb95469e3ed1b9edb75c20b8ebfa459",
+    "revision": "e8d283d01d4f9698520c2637758c7bf9",
     "url": "/index.html"
   },
   {
@@ -104,8 +104,8 @@ self.__precacheManifest = [
     "url": "/img/tcm-featured.jpg"
   },
   {
-    "revision": "2bf62f6d26c8de2237ef",
-    "url": "/js/DiscoverWatches~31ecd969.d39bcc9a.js"
+    "revision": "4935e30e6a05ac5ad467",
+    "url": "/js/DiscoverWatches~31ecd969.6e04a5d5.js"
   },
   {
     "revision": "2356a7188f683ee7dbe9f4d23512795c",
@@ -152,8 +152,8 @@ self.__precacheManifest = [
     "url": "/img/tcm.png"
   },
   {
-    "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
-    "url": "/img/add-img-icon.png"
+    "revision": "7f15f4f360c987d606d452da30351f80",
+    "url": "/img/ch-ward-featured.jpg"
   },
   {
     "revision": "8990f7fca2ca7d1b0e7f56af1784dd8b",
@@ -164,8 +164,8 @@ self.__precacheManifest = [
     "url": "/img/empty-heart.png"
   },
   {
-    "revision": "7f15f4f360c987d606d452da30351f80",
-    "url": "/img/ch-ward-featured.jpg"
+    "revision": "05010465c9f52f4e7cb59a0f6dfaa28a",
+    "url": "/img/add-img-icon.png"
   },
   {
     "revision": "9fc52e8e913d1451b7f7ca08d78111e0",
@@ -192,19 +192,19 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~3c826496.ac0ebac2.css"
   },
   {
-    "revision": "3cb057b277c577bc5491",
-    "url": "/css/app~f71cff67.a01dcbf9.css"
+    "revision": "b1349e0de5a8881016b7",
+    "url": "/css/app~f71cff67.e02686b8.css"
   },
   {
-    "revision": "3b3cff3c9e7e36e10464",
+    "revision": "11a3638178ed87453b91",
     "url": "/css/app~d0ae3f07.61870e6e.css"
   },
   {
-    "revision": "dbe469246c654c1526cd",
-    "url": "/css/app~21833f8f.d2a0feb3.css"
+    "revision": "91096188a74a259abcc9",
+    "url": "/css/app~21833f8f.28b18fed.css"
   },
   {
-    "revision": "2bf62f6d26c8de2237ef",
-    "url": "/css/DiscoverWatches~31ecd969.71596141.css"
+    "revision": "4935e30e6a05ac5ad467",
+    "url": "/css/DiscoverWatches~31ecd969.19cbdcc5.css"
   }
 ];
